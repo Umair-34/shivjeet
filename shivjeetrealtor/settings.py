@@ -81,8 +81,14 @@ WSGI_APPLICATION = 'shivjeetrealtor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd18gd3b3be6reu',
+        'USER': 'ojzikztjttsxyd',
+        'PASSWORD': 'bb5673f8df6afcb441d93b54c3dca71e20cf0ce61a8688f3ee4125ae4d4c5e23',
+        'HOST': 'ec2-18-233-83-165.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

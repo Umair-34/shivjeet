@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='property',
             name='Title',
-            field=models.CharField(default=django.utils.timezone.now, max_length=30, verbose_name='Title'),
+            field=models.CharField(default=django.utils.timezone.now, max_length=100, verbose_name='Title'),
             preserve_default=False,
         ),
     ]
