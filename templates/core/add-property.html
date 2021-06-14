@@ -1,0 +1,378 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="user-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12 royal-add-property-area section_100 pl-0 user-dash2">
+                    <div class="single-add-property">
+                        <h3>Contact Information</h3>
+                        <div class="property-form-group">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <p>
+                                        <label for="con-name">Seller Name</label>
+                                        <input type="text" placeholder="Enter Your Name" id="con-name" name="con-name">
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <p>
+                                        <label for="con-user">Seller Address</label>
+                                        <input type="text" placeholder="Enter Your Username" id="con-user"
+                                               name="con-user">
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <p>
+                                        <label for="con-user">Zip Code</label>
+                                        <input type="text" placeholder="Enter Your Username" id="con-user"
+                                               name="con-user">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <p class="no-mb first">
+                                        <label for="con-email">Seller Email</label>
+                                        <input type="email" placeholder="Enter Your Email" id="con-email"
+                                               name="con-email">
+                                    </p>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <p class="no-mb last">
+                                        <label for="con-phn">Seller Phone</label>
+                                        <input type="text" placeholder="Enter Your Phone Number" id="con-phn"
+                                               name="con-phn">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-add-property">
+                        <h3>Property description and price</h3>
+                        <div class="property-form-group">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>
+                                            <label for="title">Property Title</label>
+                                            <input type="text" name="title" id="title"
+                                                   placeholder="Enter your property title">
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="dropdown faq-drop">
+                                            <label for="dropdownmissdcall">Type</label>
+                                            <button class="pro-status dropdown-toggle" type="button"
+                                                    id="dropdownmissdcall" data-toggle="dropdown" aria-haspopup="true">
+                                                Select status
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu faq-drop-open" aria-labelledby="dropdownmissdcall">
+                                                <li>rent</li>
+                                                <li>sale</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="dropdown faq-drop">
+                                            <label for="dropdowntype">Subtype</label>
+                                            <button class="pro-type dropdown-toggle" type="button" id="dropdowntype"
+                                                    data-toggle="dropdown" aria-haspopup="true">
+                                                Select Type
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu faq-drop-open" aria-labelledby="dropdowntype">
+                                                <li>house</li>
+                                                <li>commercial</li>
+                                                <li>apartment</li>
+                                                <li>lot</li>
+                                                <li>garage</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="dropdown faq-drop">
+                                            <label for="rooms">Region</label>
+                                            <button class="pro-room dropdown-toggle" type="button" id="rooms"
+                                                    data-toggle="dropdown" aria-haspopup="true">
+                                                Select Type
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu faq-drop-open" aria-labelledby="rooms">
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="dropdown faq-drop">
+                                            <label for="dropdownmissdcall">Property Address</label>
+                                            <button class="pro-status dropdown-toggle" type="button"
+                                                    id="dropdownmissdcall" data-toggle="dropdown" aria-haspopup="true">
+                                                Select status
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu faq-drop-open" aria-labelledby="dropdownmissdcall">
+                                                <li>rent</li>
+                                                <li>sale</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="dropdown faq-drop">
+                                            <label for="dropdowntype">ZipCode</label>
+                                            <button class="pro-type dropdown-toggle" type="button" id="dropdowntype"
+                                                    data-toggle="dropdown" aria-haspopup="true">
+                                                Select Type
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu faq-drop-open" aria-labelledby="dropdowntype">
+                                                <li>house</li>
+                                                <li>commercial</li>
+                                                <li>apartment</li>
+                                                <li>lot</li>
+                                                <li>garage</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="dropdown faq-drop">
+                                            <label for="rooms">City</label>
+                                            <button class="pro-room dropdown-toggle" type="button" id="rooms"
+                                                    data-toggle="dropdown" aria-haspopup="true">
+                                                Select Type
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu faq-drop-open" aria-labelledby="rooms">
+                                                <li>1</li>
+                                                <li>2</li>
+                                                <li>3</li>
+                                                <li>4</li>
+                                                <li>5</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <p class="no-mb last">
+                                            <label for="area">Area</label>
+                                            <input type="text" name="area" placeholder="Sqft" id="area">
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <p class="no-mb last">
+                                            <label for="area">Area Unit</label>
+                                            <input type="text" name="area" placeholder="Sqft" id="area">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <p class="no-mb last">
+                                            <label for="area">Minimum Price</label>
+                                            <input type="text" name="area" placeholder="Indian Rupees" id="area">
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <p class="no-mb last">
+                                            <label for="area">Maximum Price</label>
+                                            <input type="text" name="area" placeholder="Indian Rupees" id="area">
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>
+                                            <label for="description">Property Description</label>
+                                            <textarea id="description" name="pro-dexc"
+                                                      placeholder="Describe about your property"></textarea>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="single-add-property">
+                        <h3>Extra Information if Property is Residential (Optional)</h3>
+                        <div class="property-form-group">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="dropdown faq-drop no-mb">
+                                        <label for="age">Beds <span>(optional)</span></label>
+                                        <button class="pro-age dropdown-toggle" type="button" id="age"
+                                                data-toggle="dropdown" aria-haspopup="true">
+                                            Select Age
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu faq-drop-open" aria-labelledby="age">
+                                            <li>0-1 years</li>
+                                            <li>0-5 years</li>
+                                            <li>0-10 years</li>
+                                            <li>0-15 years</li>
+                                            <li>0-20 years</li>
+                                            <li>0-50 years</li>
+                                            <li>50+ years</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="dropdown faq-drop no-mb">
+                                        <label for="bed">Bathrooms <span>(optional)</span></label>
+                                        <button class="pro-bed dropdown-toggle" type="button" id="bed"
+                                                data-toggle="dropdown" aria-haspopup="true">
+                                            Select Bedrooms
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu faq-drop-open" aria-labelledby="bed">
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="dropdown faq-drop no-mb last">
+                                        <label for="bath">Kitchens <span>(optional)</span></label>
+                                        <button class="pro-bath dropdown-toggle" type="button" id="bath"
+                                                data-toggle="dropdown" aria-haspopup="true">
+                                            Select Bathrooms
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu faq-drop-open" aria-labelledby="bath">
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                            <li>6</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="dropdown faq-drop no-mb last" style="margin-top: 40px">
+                                        <div class="checkboxes float-left">
+                                            <div class="filter-tags-wrap">
+                                                <input id="check-d" type="checkbox" name="check">
+                                                <label for="check-d">Garage<span>(Optional)</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-add-property">
+                        <h3>property Media</h3>
+                        <div class="property-form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img style="margin-bottom: 2%" id="id_BannerImage" src="img.png"
+                                         onerror="this.onerror=null; this.src='{% static 'images/img-icon-14.png' %}';"
+                                         alt=""
+                                         width="100" height="100"/>
+                                    <br>
+                                    <input type="file" name="BannerImage" id="id_BannerImage"
+                                           onchange="document.getElementById('id_BannerImage').src = window.URL.createObjectURL(this.files[0])">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="single-add-property">
+
+                        <div class="add-property-button pt-5">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="prperty-submit-button">
+                                        <button type="submit">Submit Property</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extrajs %}
+
+    <!-- ARCHIVES JS -->
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/tether.min.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/mmenu.min.js' %}"></script>
+    <script src="{% static 'js/mmenu.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/swiper.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/slick2.js' %}"></script>
+    <script src="{% static 'js/fitvids.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/smooth-scroll.min.js' %}"></script>
+    <script src="{% static 'js/lightcase.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/newsletter.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/searched.js' %}"></script>
+    <script src="{% static 'js/forms-2.js' %}"></script>
+    <script src="{% static 'js/color-switcher.js' %}"></script>
+    <script src="{% static 'js/dropzone.js' %}"></script>
+
+    <!-- Slider Revolution scripts -->
+    <script src="{% static 'revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+    <script src="{% static 'revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+
+    <!-- MAIN JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        $(".dropzone").dropzone({
+            dictDefaultMessage: "<i class='fa fa-cloud-upload'></i> Click here or drop files to upload",
+        });
+
+    </script>
+    <script>
+        $(".header-user-name").on("click", function () {
+            $(".header-user-menu ul").toggleClass("hu-menu-vis");
+            $(this).toggleClass("hu-menu-visdec");
+        });
+
+    </script>
+
+    </div>
+{% endblock %}

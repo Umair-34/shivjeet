@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Buy Property
+{% endblock %}
+
+{% block content %}
+    <!-- START SECTION PROPERTIES LISTING -->
+    <section class="properties-list featured portfolio blog">
+        <div class="container">
+            <section class="headings-2 pt-0 pb-0">
+                <div class="pro-wrapper">
+                    <div class="detail-wrapper-body">
+                        <div class="listing-title-bar">
+                            <div class="text-heading text-left">
+                                <p><a href="{% url 'home' %}">Home </a> &nbsp;/&nbsp; <span>Listings</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="headings-2 pt-0">
+                <div class="pro-wrapper">
+                    <div class="detail-wrapper-body">
+                        <div class="listing-title-bar">
+                            <div class="text-heading text-left">
+                                <p class="font-weight-bold mb-0 mt-3">{{ results }} Search results</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center">
+                        <div class="input-group border rounded input-group-lg w-auto mr-4">
+                            <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
+                                   for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                            <select class="select single-select">
+                                <option selected>Top Selling</option>
+                                <option value="1">Most Viewed</option>
+                                <option value="2">Price(low to high)</option>
+                                <option value="3">Price(high to low)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                {% for obj in obj %}
+                    <div class="item col-lg-4 col-md-6 col-xs-12 landscapes sale">
+                        <div class="project-single" data-aos="fade-up">
+                            <div class="project-inner project-head">
+                                <div class="homes">
+                                    <!-- homes img -->
+                                    <a href="{% url 'detail' obj.pk %}" class="homes-img">
+                                        <div class="homes-price">₹ Max Price {{ obj.MaxPrice }}</div>
+                                        <img src="{{ obj.BannerImage.url }}" alt="home-1" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="button-effect">
+                                    <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                            <!-- homes content -->
+                            <div class="homes-content">
+                                <!-- homes address -->
+                                <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
+                                <p class="homes-address mb-3">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
+                                    </a>
+                                </p>
+                                <!-- homes List -->
+                                <ul class="homes-list clearfix">
+                                    <li>
+                                        <span><strong>Area: </strong>{{ obj.Area }} {{ obj.Areaunit }}</span>
+                                    </li>
+
+                                    {% if  obj.Beds > 0 %}
+                                        <li>
+                                            <span><strong>Beds: </strong>{{ obj.Beds }} Beds</span>
+                                        </li>
+                                    {% endif %}
+                                    {% if  obj.Baths > 0 %}
+                                        <li>
+                                            <span><strong>Baths: </strong>{{ obj.Baths }} Baths</span>
+                                        </li>
+                                    {% endif %}
+                                    {% if obj.garage %}
+                                        <li>
+                                            <span><strong>Garage: </strong>Yes</span>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <span><strong>Garage: </strong>No</span>
+                                        </li>
+                                    {% endif %}
+
+                                </ul>
+                                <div class="footer">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        {{ obj.UploaderName }}
+                                    </a>
+                                    <span>
+                                <i class="fa fa-calendar"></i> {{ obj.created_on }}
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <nav aria-label="..." class="pt-3">
+                <ul class="pagination mt-0">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <!-- END SECTION PROPERTIES LISTING -->
+{% endblock %}
+
+{% block extrajs %}
+    <!-- ARCHIVES JS -->
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}' %}"></script>
+    <script src="{% static 'js/rangeSlider.js' %}' %}"></script>
+    <script src="{% static 'js/tether.min.js' %}' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}' %}"></script>
+    <script src="{% static 'js/mmenu.min.js' %}' %}"></script>
+    <script src="{% static 'js/mmenu.js' %}' %}"></script>
+    <script src="{% static 'js/aos.js' %}' %}"></script>
+    <script src="{% static 'js/aos2.js' %}' %}"></script>
+    <script src="{% static 'js/smooth-scroll.min.js' %}' %}"></script>
+    <script src="{% static 'js/lightcase.js' %}' %}"></script>
+    <script src="{% static 'js/search.js' %}' %}"></script>
+    <script src="{% static 'js/light.js' %}' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}' %}"></script>
+    <script src="{% static 'js/popup.js' %}' %}"></script>
+    <script src="{% static 'js/searched.js' %}' %}"></script>
+    <script src="{% static 'js/ajaxchimp.min.js' %}' %}"></script>
+    <script src="{% static 'js/newsletter.js' %}' %}"></script>
+    <script src="{% static 'js/inner.js' %}' %}"></script>
+    <script src="{% static 'js/color-switcher.js' %}' %}"></script>
+
+    <script>
+        $(".dropdown-filter").on('click', function () {
+
+            $(".explore__form-checkbox-list").toggleClass("filter-block");
+
+        });
+
+    </script>
+
+{% endblock %}

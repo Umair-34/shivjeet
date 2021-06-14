@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Ad preview
+{% endblock %}
+
+{% block content %}
+    <header class="ct-mediaSection" style="margin-top: 1%" data-stellar-background-ratio="0.3" data-height="140"
+            data-type="parallax" data-bg-image="{% static 'assets/images/demo-content/agency-parallax.jpg' %}"
+            data-bg-image-mobile="{% static 'assets/images/demo-content/agency-parallax.jpg' %}">
+        <div class="ct-mediaSection-inner">
+            <div class="container">
+                <div class="ct-u-displayTableVertical">
+                    <div class="ct-textBox ct-u-text--white ct-u-displayTableCell text-left">
+                        <h2 class="text-uppercase">{{ obj.Address }}</h2>
+                        {#                        <h4 class="text-uppercase">San Francisco, CA 55689</h4>#}
+                        <br>
+                        <span class="ct-productID ct-fw-600">
+                        Property ID: {{ obj.id }}
+                    </span>
+                    </div>
+                    <div class="ct-u-displayTableCell text-right">
+
+                        <a href="javascript:window.print()"
+                           class="btn btn-sm btn-default btn-transparent--border btn-hoverWhite ct-u-text--white"><i
+                                class="fa fa-print"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="ct-u-paddingBottom60">
+        <div class="container">
+            <div class="ct-productMeta--single text-uppercase">
+                <div class="row">
+                    <div class="col-md-8 col-lg-9">
+                        <div class="ct-u-displayTableVertical">
+                            <div class="ct-u-displayTableCell text-left">
+                                <i class="fa fa-calendar"></i><h6>Submitted on {{ obj.created_on }}</h6>
+                            </div>
+                            <div class="ct-u-displayTableCell text-left">
+                            <i class="fa fa-fw fa-user"></i><h6>Add will be published after admin approval</h6>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ct-section--products">
+                <div class="row">
+                    <div class="col-md-8 col-lg-9">
+                       <div class="ct-owl-controls--type1 ct-js-owl--propertySlider1 ct-u-marginBottom20" id="sync1">
+                            <div class="item">
+                                <img style="width: 871px; height: 442px" src="{{ obj.BannerImage.url }}"
+                                     alt="">
+                            </div>
+                            <div class="item">
+                                <img style="width: 871px; height: 442px" src="{{ obj.image1.url }}"
+                                     alt="">
+                            </div>
+                            {% if obj.image2 %}
+                                <div class="item">
+                                    <img style="width: 871px; height: 442px" src="{{ obj.image2.url }}"
+                                         alt="">
+                                </div>
+                            {% endif %}
+                            {% if obj.image3 %}
+                                <div class="item">
+                                    <img style="width: 871px; height: 442px" src="{{ obj.image3.url }}"
+                                         alt="">
+                                </div>
+                            {% endif %}
+                            {% if obj.image4 %}
+                                <div class="item">
+                                    <img style="width: 871px; height: 442px" src="{{ obj.image4.url }}"
+                                         alt="">
+                                </div>
+                            {% endif %}
+                            {% if obj.image5 %}
+                                <div class="item">
+                                    <img style="width: 871px; height: 442px" src="{{ obj.image5.url }}"
+                                         alt="">
+                                </div>
+                            {% endif %}
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="ct-heading ct-u-marginBottom20">
+                                    <h3 class="text-uppercase">Description</h3>
+                                </div>
+                                <p class="ct-u-marginBottom20">
+                                    {{ obj.Description|safe }}
+                                </p>
+                                <div class="ct-heading ct-u-marginBottom20">
+                                    <h3 class="text-uppercase">Map</h3>
+                                </div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1701.5825506940223!2d74.25213978358704!3d31.464644197673504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190227d9c5e5b9%3A0x5dc6e8eb57d8623b!2sBlock%20K%20Phase%202%20Johar%20Town%2C%20Lahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1622547325815!5m2!1sen!2s"
+                                        width="100%" height="450" style="border:0;" allowfullscreen=""
+                                        loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="ct-heading ct-u-marginBottom20">
+                            <h3 class="text-uppercase">Summary</h3>
+                        </div>
+                        <div class="ct-u-displayTableVertical ct-productDetails">
+                            <div class="ct-u-displayTableRow">
+                                <div class="ct-u-displayTableCell">
+                                    <span class="ct-fw-600">Price</span>
+                                </div>
+                                <div class="ct-u-displayTableCell text-right">
+                                    <span class="ct-price">₹ Min {{ obj.MinPrice }} <br>₹ Max {{ obj.MaxPrice }}</span>
+                                </div>
+                            </div>
+                            <div class="ct-u-displayTableRow">
+                                <div class="ct-u-displayTableCell">
+                                    <span class="ct-fw-600">Area</span>
+                                </div>
+                                <div class="ct-u-displayTableCell text-right">
+                                    <span>{{ obj.area }} Sqft</span>
+                                </div>
+                            </div>
+                            <div class="ct-u-displayTableRow">
+                                <div class="ct-u-displayTableCell">
+                                    <span class="ct-fw-600">Status</span>
+                                </div>
+                                <div class="ct-u-displayTableCell text-right">
+                                    <span>Sell</span>
+                                </div>
+                            </div>
+                            <div class="ct-u-displayTableRow">
+                                <div class="ct-u-displayTableCell">
+                                    <span class="ct-fw-600">Type</span>
+                                </div>
+                                <div class="ct-u-displayTableCell text-right">
+                                    <span>{{ obj.PropertyType }}</span>
+                                </div>
+                            </div>
+                            <div class="ct-u-displayTableRow">
+                                <div class="ct-u-displayTableCell">
+                                    <span class="ct-fw-600">Location</span>
+                                </div>
+                                <div class="ct-u-displayTableCell text-right">
+                                    <span>{{ obj.Address }}</span>
+                                </div>
+                            </div>
+                            <div class="ct-u-displayTableRow">
+                                <div class="ct-u-displayTableCell">
+                                    <span class="ct-fw-600">Beds</span>
+                                </div>
+                                <div class="ct-u-displayTableCell text-right">
+                                    <span>{{ obj.Beds }}</span>
+                                </div>
+                            </div>
+{#                            <div class="ct-u-displayTableRow">#}
+{#                                <div class="ct-u-displayTableCell">#}
+{#                                    <span class="ct-fw-600">Baths</span>#}
+{#                                </div>#}
+{#                                <div class="ct-u-displayTableCell text-right">#}
+{#                                    <span>{{ obj.Baths }}</span>#}
+{#                                </div>#}
+{#                            </div>#}
+                            <div class="ct-u-displayTableRow">
+                                <div class="ct-u-displayTableCell">
+                                    <span class="ct-fw-600">Kitchen</span>
+                                </div>
+                                <div class="ct-u-displayTableCell text-right">
+                                    <span>{{ obj.kitchen }}</span>
+                                </div>
+                            </div>
+{#                            <div class="ct-u-displayTableRow">#}
+{#                                <div class="ct-u-displayTableCell">#}
+{#                                    <span class="ct-fw-600">Garage</span>#}
+{#                                </div>#}
+{#                                <div class="ct-u-displayTableCell text-right">#}
+{#                                    {% if obj.garage %}#}
+{#                                        <span>yes</span>#}
+{#                                    {% else %}#}
+{#                                        <span>No</span>#}
+{#                                    {% endif %}#}
+{#                                </div>#}
+{#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
