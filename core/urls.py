@@ -4,7 +4,6 @@ from .views import index, add_property, preview_ad, buy_property, featured_prope
 
 urlpatterns = [
     path('', index, name='home'),
-    path('base', base, name='base'),
     path('add-property', add_property, name='add-property'),
     path('preview-ad', preview_ad, name='preview-ad'),
     path('search', search, name='search'),
