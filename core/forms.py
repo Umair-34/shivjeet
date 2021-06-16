@@ -35,8 +35,8 @@ class SearchWebForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SearchWebForm, self).__init__(*args, **kwargs)
-        self.fields['MinPrice'].widget.attrs = {'class': 'at-input', 'placeholder': 'Minimum Price' }
-        self.fields['MaxPrice'].widget.attrs = {'class': 'at-input', 'placeholder': 'Maximum Price' }
+        self.fields['MinPrice'].widget.attrs = {'class': 'area-filter filter-1 mb-0', 'placeholder': 'Minimum Price' }
+        self.fields['MaxPrice'].widget.attrs = {'class': 'area-filter mb-0', 'placeholder': 'Maximum Price' }
         self.fields['Subtype'].queryset = SubPropertyType.objects.none()
 
         if 'Type' in self.data:

@@ -69,7 +69,7 @@ header.fullwidth .container {
 }
 .left-side {
     float: left;
-    width: 840px;
+    width: 100%;
     display: inline-block;
 }
 .right-side {
@@ -494,7 +494,7 @@ a.button.border, a.button {
     color: #707070;
 }
 #header.cloned.sticky ul li:hover a {
-    color: #fff;
+    color: #f55d2c;
 }
 #navigation.style-1 .current:after {
     opacity: 1;
@@ -504,11 +504,10 @@ a.button.border, a.button {
     border-radius: 3px;
 }
 #navigation.style-1 ul li:hover {
-    background-color: #274abb;
-    color: #274abb;
+
 }
 #navigation.style-1 ul li:hover a {
-    color: #fff;
+    color: #f55d2c;
 }
 #navigation.style-1 ul a {
     font-size: 16px;
