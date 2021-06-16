@@ -12,7 +12,7 @@ class SearchForm(ModelForm):
         super(SearchForm, self).__init__(*args, **kwargs)
         self.fields['PropertyType'].widget.attrs = {'class': 'form-control ct-u-text--white', }
         self.fields['SubType'].widget.attrs = {'class': 'form-control ct-u-text--white', }
-        self.fields['City'].widget.attrs = {'class': 'form-control ct-u-text--white', }
+        self.fields['City'].widget.attrs = {'class': 'list', }
         self.fields['MaxPrice'].widget.attrs = {'class': 'form-control input-lg', }
         self.fields['MinPrice'].widget.attrs = {'class': 'form-control input-lg', }
         self.fields['SubType'].queryset = SubPropertyType.objects.none()

@@ -6,7 +6,6 @@ from htmllaundry import strip_markup
 
 def index(request):
     queryset = Property.objects.filter(Featured='True', Status=True)[:6]
-    exists = Property.objects.filter(Featured='True', Status=True).count()
     if request.method == 'POST':
         webform = SearchWebForm(request.POST)
         print("-----In If-----")
@@ -29,7 +28,6 @@ def index(request):
 
     context = {
         'obj': queryset,
-        "exists": exists,
         'webform': webform,
     }
     return render(request, 'core/index.html', context)
@@ -49,8 +47,6 @@ def search(request):
                                        SubType=subtype, MinPrice__gte=min, MaxPrice__lte=max)
     results = Property.objects.filter(City=city, PropertyType=type,
                                       SubType=subtype, MinPrice__gte=min, MaxPrice__lte=max).count()
-
-
 
     context = {
         'obj': queryset,
@@ -91,10 +87,31 @@ def buy_property(request):
     queryset = Property.objects.filter(Status=True)
     results = Property.objects.filter(Status=True).count()
 
+    if request.method == 'POST':
+        webform = SearchForm(request.POST)
+        if webform.is_valid():
+            webCity = webform.cleaned_data['City']
+            webType = webform.cleaned_data['Type']
+            webSubtype = webform.cleaned_data['Subtype']
+            webMinPrice = webform.cleaned_data['MinPrice']
+            webMaxPrice = webform.cleaned_data['MaxPrice']
+            print('--------MinPrice-------->', webMinPrice, "---Type---", type(webMinPrice))
+
+            request.session['city'] = webCity.id
+            request.session['type'] = webType.id
+            request.session['subtype'] = webSubtype.id
+            request.session['minprice'] = str(webMinPrice)
+            request.session['maxprice'] = str(webMaxPrice)
+            return redirect('search')
+    else:
+        webform = SearchForm()
+
     context = {
         'obj': queryset,
+        'webform': webform,
         'results': results,
     }
+
     return render(request, 'core/buy.html', context)
 
 

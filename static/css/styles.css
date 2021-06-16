@@ -12400,8 +12400,8 @@ form label.error {
 /*--------- 37. HEADER IMAGE HOME 18 ----------*/
 /*---------------------------------------------*/
 .header-image.home-18 {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../images/bg/home.jpg") no-repeat center top;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/bg/home.jpg") no-repeat center top;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../images/bg/check2.jpg.jpg") no-repeat center top;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/bg/check2.jpg") no-repeat center top;
   background-size: cover;
   background-attachment: fixed !important;
   width: 100%;
