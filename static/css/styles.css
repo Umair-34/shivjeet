@@ -1278,7 +1278,7 @@ section.recently.portfolio {
 }
 
 .recently .homes-content {
-  background: #fff !important;
+  background: #fff ;
   padding: 20px 20px !important;
 }
 
@@ -2303,14 +2303,14 @@ section.portfolio {
 
 .homes-tag.featured {
   width: 84px !important;
-  background: #18ba60 !important;
+  background: #f55d2c !important;
 }
 
 .portfolio .homes .button {
   font-size: 13px;
   font-weight: 600;
   padding: 6px 14px;
-  border-radius: 2px;
+  border-radius: 0px;
   color: #fff;
   border: none;
   background-color: #f55d2c;
@@ -2336,14 +2336,14 @@ section.portfolio {
 }
 
 .portfolio .homes-tag.sale {
-  right: 15px;
+  left: 82px;
   margin-top: 15px;
   top: 0;
 }
 
 .portfolio .homes-tag.sale.rent {
-  background: #f55d2c !important;
-  color: #fff;
+  background: white !important;
+  color: black;
   z-index: 1;
 }
 
@@ -2413,9 +2413,10 @@ section.portfolio {
 }
 
 .portfolio .homes-content {
-  background: #fff !important;
+  background: #FFFFFF;
   padding: 20px 20px !important;
 }
+
 
 .portfolio .homes-content h3.title a {
   font-size: 1.1rem;
@@ -2487,10 +2488,10 @@ section.portfolio {
 }
 
 .portfolio .homes-content .homes-list li {
-  width: 45%;
+  width: 33%;
   float: left;
-  font-size: 14px;
-  line-height: 40px;
+  font-size: 13px;
+  line-height: 35px;
   list-style: none;
   color: #f55d2c;
 }

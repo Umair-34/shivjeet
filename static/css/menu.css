@@ -81,6 +81,7 @@ header.fullwidth .container {
 #logo,
 #navigation {
     float: left;
+    margin-left: 2%;
 }
 #logo {
     margin-right: 40px;

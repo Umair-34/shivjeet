@@ -4,262 +4,226 @@
 
 {% block content %}
     <!-- START SECTION PROPERTIES LISTING -->
-    <section class="properties-right list featured portfolio blog pt-5">
+    <section class="properties-list full featured portfolio blog">
         <div class="container">
-            <section class="headings-2 pt-0 pb-55">
+            <section class="headings-2 pt-0 pb-0">
                 <div class="pro-wrapper">
                     <div class="detail-wrapper-body">
                         <div class="listing-title-bar">
                             <div class="text-heading text-left">
-                                <p class="pb-2"><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Listings</span></p>
+                                <p><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Listings</span></p>
                             </div>
                             <h3>List View</h3>
                         </div>
                     </div>
                 </div>
             </section>
-            <div class="row">
-                <div class="col-lg-8 col-md-12 blog-pots">
-                    <section class="headings-2 pt-0">
-                        <div class="pro-wrapper">
-                            <div class="detail-wrapper-body">
-                                <div class="listing-title-bar">
-                                    <div class="text-heading text-left">
-                                        <p class="font-weight-bold mb-0 mt-3">{{ results }} Search results</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cod-pad single detail-wrapper  mt-0 d-flex justify-content-md-end align-items-center grid"
-                                 style="float: right;">
-                                <div class="input-group border rounded input-group-lg w-auto">
-                                    <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
-                                           for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
-                                    <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
-                                            data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
-                                            id="inputGroupSelect01" name="sortby">
-                                        <option selected>Top Selling</option>
-                                        <option value="1">Most Viewed</option>
-                                        <option value="2">Price(low to high)</option>
-                                        <option value="3">Price(high to low)</option>
-                                    </select>
-                                </div>
+            <!-- Search Form -->
+{#            <div class="col-12 px-0 parallax-searchs">#}
+{#                <div class="banner-search-wrap">#}
+{#                    <div class="tab-content">#}
+{#                        <div class="tab-pane fade show active" id="tabs_1">#}
+{#                            <div class="rld-main-search">#}
+{#                                <div class="row">#}
+{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
+{#                                        <span>City:</span>#}
+{#                                        {{ webform.City }}#}
+{#                                    </div>#}
+{#                                    <div class="rld-single-select " style="margin-right: 1%;">#}
+{#                                        <span>Type:</span>#}
+{#                                        {{ webform.PropertyType }}#}
+{#                                    </div>#}
+{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
+{#                                        <span>Sub-Type:</span>#}
+{#                                        {{ webform.SubType }}#}
+{#                                    </div>#}
+{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
+{#                                        <span>Sub-Type:</span>#}
+{#                                        {{ webform.MinPrice }}#}
+{#                                    </div>#}
+{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
+{#                                        <span>Sub-Type:</span>#}
+{#                                        {{ webform.MaxPrice }}#}
+{#                                    </div>#}
+{#                                    <div class="col-xl-2 col-lg-2 col-md-4 pl-0">#}
+{#                                        <a style="background-color: #f55d2c" class="btn btn-yellow" href="#">Search Now</a>#}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+            <!--/ End Search Form -->
+            <section class="headings-2 pt-0" style="margin-top: 2%">
+                <div class="pro-wrapper">
+                    <div class="detail-wrapper-body">
+                        <div class="listing-title-bar">
+                            <div class="text-heading text-left">
+                                <p class="font-weight-bold mb-0 mt-3">{{ results }} Search results</p>
                             </div>
                         </div>
-                    </section>
-                    <div class="row featured portfolio-items">
-                        {{ obj.length }}
-                        {% for object in obj %}
-                            {% if forloop.counter|divisibleby:2 %}
-                                <div class="item col-lg-5 col-md-12 col-xs-12 landscapes sale pr-0 pb-0 my-44 ft">
-                                    <div class="project-single mb-0 bb-0" data-aos="fade-up">
-                                        <div class="project-inner project-head">
-                                            <div class="project-bottom">
-                                                <h4><a href="single-property-1.html">View Property</a><span
-                                                        class="category">Real Estate</span>
-                                                </h4>
-                                            </div>
-                                            <div class="homes">
-                                                <!-- homes img -->
-                                                <a href="single-property-1.html" class="homes-img">
-                                                    <div class="homes-tag button alt featured">Featured</div>
-                                                    <div class="homes-tag button sale rent">For Rent</div>
-                                                    <div class="homes-price">Family Home</div>
-                                                    <img src="{% static 'images/feature-properties/fp-2.jpg' %}"
-                                                         alt="home-1"
-                                                         class="img-responsive">
-                                                </a>
-                                            </div>
-                                            <div class="button-effect">
-                                                <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                                <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                                   class="btn popup-video popup-youtube"><i
-                                                        class="fas fa-video"></i></a>
-                                                <a href="single-property-2.html" class="img-poppu btn"><i
-                                                        class="fa fa-photo"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- homes content -->
-                                <div class="col-lg-7 col-md-12 homes-content pb-0 my-44 ft mb-44" data-aos="fade-up">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Beds</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Baths</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Grs</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="single-property-1.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% else %}
-                                <div class="item col-lg-5 col-md-12 col-xs-12 landscapes sale pr-0 pb-0">
-                                    <div class="project-single mb-0 bb-0" data-aos="fade-up">
-                                        <div class="project-inner project-head">
-                                            <div class="project-bottom">
-                                                <h4><a href="single-property-1.html">View Property</a><span
-                                                        class="category">Real Estate</span>
-                                                </h4>
-                                            </div>
-                                            <div class="homes">
-                                                <!-- homes img -->
-                                                <a href="single-property-1.html" class="homes-img">
-                                                    <div class="homes-tag button alt featured">Featured</div>
-                                                    <div class="homes-tag button alt sale">For Sale</div>
-                                                    <div class="homes-price">Family Home</div>
-                                                    <img src="{% static 'images/feature-properties/fp-1.jpg' %}"
-                                                         alt="home-1"
-                                                         class="img-responsive">
-                                                </a>
-                                            </div>
-                                            <div class="button-effect">
-                                                <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                                <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                                   class="btn popup-video popup-youtube"><i
-                                                        class="fas fa-video"></i></a>
-                                                <a href="single-property-2.html" class="img-poppu btn"><i
-                                                        class="fa fa-photo"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- homes content -->
-                                <div class="col-lg-7 col-md-12 homes-content pb-0 mb-44" data-aos="fade-up">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Beds</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Baths</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Grs</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="single-property-1.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- check -->
-                            {% endif %}
-                        {% endfor %}
+                    </div>
+                    <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center">
+                        <div class="input-group border rounded input-group-lg w-auto mr-4">
+                            <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
+                                   for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                            <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
+                                    data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
+                                    id="inputGroupSelect01" name="sortby">
+                                <option selected>Top Selling</option>
+                                <option value="1">Most Viewed</option>
+                                <option value="2">Price(low to high)</option>
+                                <option value="3">Price(high to low)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <aside class="col-lg-4 col-md-12 car">
-                    <div class="widget">
-                        <!-- Search Fields -->
-                        <div class="widget-boxed main-search-field">
-                            <div class="widget-boxed-header">
-                                <h4>Find Your House</h4>
-                            </div>
-                            <!-- Search Form -->
-                            <div class="trip-search">
-                                <br>
-                                <form class="form">
-                                    <div class="form-group location">
-                                        <label style="font-size: 14px">Select City:</label>
-                                        {{ webform.City }}
-                                    </div>
-                                    <div class="form-group location">
-                                        <label style="font-size: 14px">Select Type:</label>
-                                        {{ webform.PropertyType }}
-                                    </div>
-                                    <div class="form-group location">
-                                        <label style="font-size: 14px">Select SubType:</label>
-                                        {{ webform.SubType }}
-                                    </div>
+            </section>
+            <div class="row featured portfolio-items">
 
-                                    <div class="form-group ">
-                                        <label style="font-size: 14px">Min Price:</label>
-                                        <div class="main-search-input-item">
-                                            {{ webform.MaxPrice }}
-                                        </div>
+                {% for obj in obj %}
+                    {% if forloop.counter|divisibleby:2 %}
+                        <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0 my-44 ft"
+                             data-aos="fade-up">
+                            <div class="project-single mb-0 bb-0">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                        <!-- homes img -->
+                                        <a href="{% url 'detail' obj.pk %}" class="homes-img">
+                                            <div class="homes-tag button alt featured">Sale</div>
+                                            <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
+                                            <img style="width: 365px; height: 300px" src="{{ obj.BannerImage.url }}"
+                                                 alt="home-1"
+                                                 class="img-responsive">
+                                        </a>
                                     </div>
-                                    <div class="form-group ">
-                                        <label style="font-size: 14px">Max Price:</label>
-                                        <div class="main-search-input-item">
-                                            {{ webform.MaxPrice }}
-                                        </div>
+                                    <div class="button-effect">
+                                        <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
                                     </div>
-
-                                </form>
-                            </div>
-
-                            <div class="col-lg-12 no-pds">
-                                <div class="at-col-default-mar">
-                                    <button class="btn btn-default hvr-bounce-to-right" type="submit">Search</button>
                                 </div>
                             </div>
                         </div>
+                        <!-- homes content -->
+                        <div class="col-lg-6 col-md-12 homes-content pb-0 my-44 ft mb-44" data-aos="fade-up" style="background-color: white; !important;">
+                            <!-- homes address -->
+                            <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
+                            <p class="homes-address mb-3">
+                                <a href="{% url 'detail' obj.pk %}">
+                                    <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
+                                </a>
+                            </p>
+                            <!-- homes List -->
+                            <ul class="homes-list clearfix">
+                                <li>
+                                    <span> <i class="fa fa-bed" aria-hidden="true"></i>
+                                        {{ obj.Beds }} Beds</span>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-bath" aria-hidden="true"></i> {{ obj.Baths }} Baths</span>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-object-group"
+                                             aria-hidden="true"></i> {{ obj.Area }} sq mt</span>
+                                </li>
+                                <li>
+                                    {% if obj.garage %}
+                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: Yes</span>
+                                    {% else %}
+                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: No</span>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                            <!-- Price -->
+                            <div class="price-properties">
+                                <h3 class="title mt-3">
+                                    <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} - ₹ {{ obj.MaxPrice }}</a>
+                                </h3>
+                            </div>
+                            <div class="footer">
+                                <a href="{% url 'detail' obj.pk %}">
+                                    <i class="fa fa-user"
+                                       aria-hidden="true"></i> {{ obj.UploaderName }}
+                                </a>
+                                <span>
+                                <i class="fa fa-calendar"></i> {{ obj.created_on }}
+                                </span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0" data-aos="fade-up">
+                            <div class="project-single mb-0 bb-0">
+                                <div class="project-inner project-head">
+                                    <div class="homes">
+                                        <!-- homes img -->
+                                        <a href="single-property-1.html" class="homes-img">
+                                            <div class="homes-tag button alt featured">Sale</div>
+                                            <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
+                                            <img style="width: 365px; height: 300px" src="{{ obj.BannerImage.url }}"
+                                                 alt="home-1"
+                                                 class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="button-effect">
+                                        <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
 
-                    </div>
-                </aside>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- homes content -->
+                        <div class="col-lg-6 col-md-12 homes-content pb-0 mb-44" data-aos="fade-up">
+                            <!-- homes address -->
+                            <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
+                            <p class="homes-address mb-3">
+                                <a href="{% url 'detail' obj.pk %}">
+                                    <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
+                                </a>
+                            </p>
+                            <!-- homes List -->
+                            <ul class="homes-list clearfix">
+                                <li>
+                                    <span> <i class="fa fa-bed" aria-hidden="true"></i>
+                                        {{ obj.Beds }} Beds</span>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-bath" aria-hidden="true"></i> {{ obj.Baths }} Baths</span>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-object-group"
+                                             aria-hidden="true"></i> {{ obj.Area }} sq mt</span>
+                                </li>
+                                <li>
+                                    {% if obj.garage %}
+                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: Yes</span>
+                                    {% else %}
+                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: No</span>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                            <!-- Price -->
+                            <div class="price-properties">
+                                <h3 class="title mt-3">
+                                    <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} - ₹ {{ obj.MaxPrice }}</a>
+                                </h3>
+                            </div>
+                            <div class="footer">
+                                <a href="{% url 'detail' obj.pk %}">
+                                    <i class="fa fa-user"
+                                       aria-hidden="true"></i> {{ obj.UploaderName }}
+                                </a>
+                                <span>
+                                <i class="fa fa-calendar"></i> {{ obj.created_on }}
+                            </span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            <nav aria-label="..." class="agents pt-55">
-                <ul class="pagination disabled">
+            <br>
+            <nav aria-label="..." class="pt-0">
+                <ul class="pagination lis-view">
                     <li class="page-item disabled">
                         <a class="page-link" href="#" tabindex="-1">Previous</a>
                     </li>
@@ -278,5 +242,6 @@
         </div>
     </section>
     <!-- END SECTION PROPERTIES LISTING -->
+
 {% endblock %}
 

@@ -22,22 +22,22 @@
                             {% csrf_token %}
                             <div class="filter-item">
                                 <label>City</label>
-                                {{webform.City}}
+                                {{ webform.City }}
                             </div>
                             <div class="filter-item">
                                 <label>Type</label>
-                                {{webform.Type }}
+                                {{ webform.Type }}
                             </div>
-                             <div class="filter-item">
+                            <div class="filter-item">
                                 <label>Sub-Type</label>
-                                 {{ webform.Subtype }}
+                                {{ webform.Subtype }}
                             </div>
 
                             <div class="clear"></div>
                             <div class="filter-item">
                                 <label>Price</label>
-                                {{webform.MinPrice}}
-                                {{webform.MaxPrice}}
+                                {{ webform.MinPrice }}
+                                {{ webform.MaxPrice }}
                             </div>
                             <div class="filter-item">
                                 <label class="label-submit p-0 m-0">Submit</label>
@@ -61,595 +61,126 @@
             </div>
             <div class="row portfolio-items">
                 {% for obj in obj %}
-                <div class="item col-lg-4 col-md-6 col-xs-12 people rent">
-                    <div class="project-single" data-aos="zoom-in">
-                        <div class="project-inner project-head">
-                            <div class="homes">
-                                <!-- homes img -->
-                                <a href="{% url 'detail' obj.pk %}" class="homes-img">
-                                    <div class="homes-tag button sale rent">Featured</div>
-                                    <img src="{{ obj.BannerImage.url }}" alt="home-1" class="img-responsive">
-                                </a>
+                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent">
+                        <div class="project-single" data-aos="zoom-in">
+                            <div class="project-inner project-head">
+                                <div class="homes">
+                                    <!-- homes img -->
+                                    <a href="{% url 'detail' obj.pk %}" class="homes-img">
+                                        <div class="homes-tag button alt featured">Sale</div>
+                                        <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
+                                        <img style="width: 350px; height: 263px" src="{{ obj.BannerImage.url }}"
+                                             alt="home-1" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="button-effect">
+                                    <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
+                                </div>
                             </div>
-                            <div class="button-effect">
-                                <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <!-- homes content -->
-                        <div class="homes-content">
-                            <!-- homes address -->
-                            <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
-                            <p class="homes-address mb-3">
-                                <a href="{% url 'detail' obj.pk %}">
-                                    <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
-                                </a>
-                            </p>
-                            <!-- homes List -->
-                            <!-- homes List -->
-                            <ul class="homes-list clearfix">
-                                <li>
-                                    <i class="fa fa-object-group" aria-hidden="true"></i>
-                                    <span>{{ obj.Area }} - {{ obj.Areaunit }}</span>
-                                </li>
-                                {% if obj.Beds > 0 %}
-                                <li>
-                                    <i class="fa fa-bed" aria-hidden="true"></i>
-                                    <span>{{ obj.Beds }} Bedrooms</span>
-                                </li>
-                                {% endif %}
-                                {% if obj.Baths > 0 %}
-                                <li>
-                                    <i class="fa fa-bath" aria-hidden="true"></i>
-                                    <span>{{ obj.Baths }} Bathrooms</span>
-                                </li>
-                                {% endif %}
-                                <li>
-                                    <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                    {% if obj.garage %}
-                                    <span>Garages: Yes</span>
-                                    {% else %}
-                                    <span>Garages: No</span>
+                            <!-- homes content -->
+                            <div class="homes-content" style="background-color: #d2d2d2">
+                                <!-- homes address -->
+                                <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
+                                <p class="homes-address mb-1">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
+                                    </a>
+                                </p>
+                                <ul class="homes-list clearfix">
+                                    {% if obj.Beds > 0 %}
+                                        <li>
+                                            <i class="fa fa-bed" aria-hidden="true"></i>
+                                            <span>{{ obj.Beds }} </span>
+                                        </li>
                                     {% endif %}
-                                </li>
-                            </ul>
-                            <!-- Price -->
-                            <div class="price-properties">
-                                <h3 class="title mt-3">
-                                    <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice}} Min - ₹ {{ obj.MaxPrice }} Max</a>
-                                </h3>
-                            </div>
-                            <div class="footer">
-                                <a href="agent-details.html">
-                                    <i class="fa fa-user"></i> {{ obj.UploaderName}}
-                                </a>
-                                <span>
-                                    <i class="fa fa-calendar"></i> {{ obj.created_on }}
-                                </span>
+                                    {% if obj.Baths > 0 %}
+                                        <li>
+                                            <i class="fa fa-bath" aria-hidden="true"></i>
+                                            <span>{{ obj.Baths }} </span>
+                                        </li>
+                                    {% endif %}
+                                    <li>
+                                        <span><i class="fa fa-object-group"
+                                                 aria-hidden="true"></i> {{ obj.Area }} sq mt
+                                    </span>
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
             <div class="bg-all">
-                <a href="properties-full-grid-1.html" class="btn btn-outline-light">View All</a>
+                <a href="{% url 'buy' %}" class="btn btn-outline-light">View All</a>
             </div>
         </div>
     </section>
     <!-- END SECTION PROPERTIES FOR SALE -->
 
-    <!-- START SECTION PROPERTIES FOR RENT -->
-    <section class="recently portfolio home18">
+    <section class="recently portfolio bg-white-1 home18">
         <div class="container">
             <div class="sec-title">
-                <h2><span>Properties </span>For Rent</h2>
+                <h2><span>Properties for </span>Rent</h2>
             </div>
-            <div class="portfolio col-xl-12">
-                <div class="slick-lancers">
-                    <div class="agents-grid" data-aos="zoom-in">
-                        <div class="landscapes">
-                            <div class="project-single">
-                                <div class="project-inner project-head">
-                                    <div class="project-bottom">
-                                        <h4><a href="single-property-1.html">View Property</a><span class="category">Real Estate</span>
-                                        </h4>
-                                    </div>
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="single-property-1.html" class="homes-img">
-                                            <div class="homes-tag button alt featured">Featured</div>
-                                            <div class="homes-tag button sale rent">For Rent</div>
-                                            <div class="homes-price">Family Home</div>
-                                            <img src="{% static 'images/feature-properties/fp-1.jpg' %}" alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                           class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="single-property-2.html" class="img-poppu btn"><i
-                                                class="fa fa-photo"></i></a>
-                                    </div>
+            <div class="row portfolio-items">
+                {% for obj in obj %}
+                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent">
+                        <div class="project-single" data-aos="zoom-in">
+                            <div class="project-inner project-head">
+                                <div class="homes">
+                                    <!-- homes img -->
+                                    <a href="{% url 'detail' obj.pk %}" class="homes-img">
+                                        <div class="homes-tag button alt featured">Sale</div>
+                                        <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
+                                        <img style="width: 350px; height: 263px" src="{{ obj.BannerImage.url }}"
+                                             alt="home-1" class="img-responsive">
+                                    </a>
                                 </div>
-                                <!-- homes content -->
-                                <div class="homes-content">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
+                                <div class="button-effect">
+                                    <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                            <!-- homes content -->
+                            <div class="homes-content" style="background-color: #d2d2d2">
+                                <!-- homes address -->
+                                <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
+                                <p class="homes-address mb-1">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
+                                    </a>
+                                </p>
+                                <ul class="homes-list clearfix">
+                                    {% if obj.Beds > 0 %}
                                         <li>
                                             <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Bedrooms</span>
+                                            <span>{{ obj.Beds }} </span>
                                         </li>
+                                    {% endif %}
+                                    {% if obj.Baths > 0 %}
                                         <li>
                                             <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Bathrooms</span>
+                                            <span>{{ obj.Baths }} </span>
                                         </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Garages</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="single-property-1.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <a href="agent-details.html">
-                                            <i class="fa fa-user"></i> Jhon Doe
-                                        </a>
-                                        <span>
-                                                <i class="fa fa-calendar"></i> 2 months ago
-                                            </span>
-                                    </div>
-                                </div>
+                                    {% endif %}
+                                    <li>
+                                        <span><i class="fa fa-object-group"
+                                                 aria-hidden="true"></i> {{ obj.Area }} sq mt
+                                    </span>
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
-                    <div class="agents-grid" data-aos="zoom-in">
-                        <div class="people">
-                            <div class="project-single">
-                                <div class="project-inner project-head">
-                                    <div class="project-bottom">
-                                        <h4><a href="single-property-1.html">View Property</a><span class="category">Real Estate</span>
-                                        </h4>
-                                    </div>
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="single-property-1.html" class="homes-img">
-                                            <div class="homes-tag button alt featured">Featured</div>
-                                            <div class="homes-tag button sale rent">For Rent</div>
-                                            <div class="homes-price">Family Home</div>
-                                            <img src="{% static 'images/feature-properties/fp-2.jpg' %}" alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                           class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="single-property-2.html" class="img-poppu btn"><i
-                                                class="fa fa-photo"></i></a>
-                                    </div>
-                                </div>
-                                <!-- homes content -->
-                                <div class="homes-content">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Bedrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Bathrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Garages</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="single-property-1.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <a href="agent-details.html">
-                                            <i class="fa fa-user"></i> Jhon Doe
-                                        </a>
-                                        <span>
-                                               <i class="fa fa-calendar"></i> 2 months ago
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="agents-grid" data-aos="zoom-in">
-                        <div class="people landscapes no-pb pbp-3">
-                            <div class="project-single no-mb mbp-3">
-                                <div class="project-inner project-head">
-                                    <div class="project-bottom">
-                                        <h4><a href="single-property-1.html">View Property</a><span class="category">Real Estate</span>
-                                        </h4>
-                                    </div>
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="single-property-1.html" class="homes-img">
-                                            <div class="homes-tag button alt featured">Featured</div>
-                                            <div class="homes-tag button sale rent">For Rent</div>
-                                            <div class="homes-price">Family Home</div>
-                                            <img src="{% static 'images/feature-properties/fp-3.jpg' %}" alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                           class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="single-property-2.html" class="img-poppu btn"><i
-                                                class="fa fa-photo"></i></a>
-                                    </div>
-                                </div>
-                                <!-- homes content -->
-                                <div class="homes-content">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="properties-details.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Bedrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Bathrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Garages</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="single-property-1.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <a href="agent-details.html">
-                                            <i class="fa fa-user"></i> Jhon Doe
-                                        </a>
-                                        <span>
-                                                <i class="fa fa-calendar"></i> 2 months ago
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="agents-grid" data-aos="zoom-in">
-                        <div class="landscapes">
-                            <div class="project-single no-mb">
-                                <div class="project-inner project-head">
-                                    <div class="project-bottom">
-                                        <h4><a href="single-property-1.html">View Property</a><span class="category">Real Estate</span>
-                                        </h4>
-                                    </div>
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="single-property-1.html" class="homes-img">
-                                            <div class="homes-tag button alt featured">Featured</div>
-                                            <div class="homes-tag button sale rent">For Rent</div>
-                                            <div class="homes-price">Family Home</div>
-                                            <img src="{% static 'images/feature-properties/fp-4.jpg' %}" alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                           class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="single-property-2.html" class="img-poppu btn"><i
-                                                class="fa fa-photo"></i></a>
-                                    </div>
-                                </div>
-                                <!-- homes content -->
-                                <div class="homes-content">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Bedrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Bathrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Garages</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="single-property-1.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <a href="agent-details.html">
-                                            <i class="fa fa-user"></i> Jhon Doe
-                                        </a>
-                                        <span>
-                                                <i class="fa fa-calendar"></i> 2 months ago
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="agents-grid" data-aos="zoom-in">
-                        <div class="people">
-                            <div class="project-single no-mb">
-                                <div class="project-inner project-head">
-                                    <div class="project-bottom">
-                                        <h4><a href="single-property-1.html">View Property</a><span class="category">Real Estate</span>
-                                        </h4>
-                                    </div>
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="single-property-1.html" class="homes-img">
-                                            <div class="homes-tag button alt featured">Featured</div>
-                                            <div class="homes-tag button sale rent">For Rent</div>
-                                            <div class="homes-price">Family Home</div>
-                                            <img src="{% static 'images/feature-properties/fp-5.jpg' %}" alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                           class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="single-property-2.html" class="img-poppu btn"><i
-                                                class="fa fa-photo"></i></a>
-                                    </div>
-                                </div>
-                                <!-- homes content -->
-                                <div class="homes-content">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Bedrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Bathrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Garages</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="properties-details.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <a href="agent-details.html">
-                                            <i class="fa fa-user"></i> Jhon Doe
-                                        </a>
-                                        <span>
-                                                <i class="fa fa-calendar"></i> 2 months ago
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="agents-grid" data-aos="zoom-in">
-                        <div class="people landscapes no-pb pbp-3">
-                            <div class="project-single no-mb">
-                                <div class="project-inner project-head">
-                                    <div class="project-bottom">
-                                        <h4><a href="single-property-1.html">View Property</a><span class="category">Real Estate</span>
-                                        </h4>
-                                    </div>
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="single-property-1.html" class="homes-img">
-                                            <div class="homes-tag button alt featured">Featured</div>
-                                            <div class="homes-tag button sale rent">For Rent</div>
-                                            <div class="homes-price">Family Home</div>
-                                            <img src="{% static 'images/feature-properties/fp-6.jpg' %}" alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4"
-                                           class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                        <a href="single-property-2.html" class="img-poppu btn"><i
-                                                class="fa fa-photo"></i></a>
-                                    </div>
-                                </div>
-                                <!-- homes content -->
-                                <div class="homes-content">
-                                    <!-- homes address -->
-                                    <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
-                                    <p class="homes-address mb-3">
-                                        <a href="single-property-1.html">
-                                            <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
-                                        </a>
-                                    </p>
-                                    <!-- homes List -->
-                                    <ul class="homes-list clearfix">
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>6 Bedrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>3 Bathrooms</span>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
-                                            <span>720 sq ft</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-warehouse" aria-hidden="true"></i>
-                                            <span>2 Garages</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Price -->
-                                    <div class="price-properties">
-                                        <h3 class="title mt-3">
-                                            <a href="single-property-1.html">$ 230,000</a>
-                                        </h3>
-                                        <div class="compare">
-                                            <a href="#" title="Compare">
-                                                <i class="fas fa-exchange-alt"></i>
-                                            </a>
-                                            <a href="#" title="Share">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                            <a href="#" title="Favorites">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <a href="agent-details.html">
-                                            <i class="fa fa-user"></i> Jhon Doe
-                                        </a>
-                                        <span>
-                                                <i class="fa fa-calendar"></i> 2 months ago
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+            </div>
+            <div class="bg-all">
+                <a href="{% url 'buy' %}" class="btn btn-outline-light">View All</a>
             </div>
         </div>
     </section>
-    <!-- END SECTION PROPERTIES FOR RENT -->
-
+    <!-- END SECTION PROPERTIES FOR SALE -->
     <!-- START SECTION WHY CHOOSE US -->
     <section class="how-it-works bg-white-1 home18">
         <div class="container">
