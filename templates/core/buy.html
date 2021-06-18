@@ -1,7 +1,20 @@
 {% extends 'baseall.html' %}
 {% load static %}
 
+{% block extracss %}
+    <style>
+        .extra {
+            width: 300px;
+            margin-top: 10px;
+        }
 
+        .inputextra {
+            width: 95%;
+            margin-top: 17px;
+            height: 47px;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <!-- START SECTION PROPERTIES LISTING -->
     <section class="properties-list full featured portfolio blog">
@@ -10,238 +23,293 @@
                 <div class="pro-wrapper">
                     <div class="detail-wrapper-body">
                         <div class="listing-title-bar">
-                            <div class="text-heading text-left">
-                                <p><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Listings</span></p>
-                            </div>
-                            <h3>List View</h3>
+                            <h3>Search Properties</h3>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- Search Form -->
-{#            <div class="col-12 px-0 parallax-searchs">#}
-{#                <div class="banner-search-wrap">#}
-{#                    <div class="tab-content">#}
-{#                        <div class="tab-pane fade show active" id="tabs_1">#}
-{#                            <div class="rld-main-search">#}
-{#                                <div class="row">#}
-{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
-{#                                        <span>City:</span>#}
-{#                                        {{ webform.City }}#}
-{#                                    </div>#}
-{#                                    <div class="rld-single-select " style="margin-right: 1%;">#}
-{#                                        <span>Type:</span>#}
-{#                                        {{ webform.PropertyType }}#}
-{#                                    </div>#}
-{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
-{#                                        <span>Sub-Type:</span>#}
-{#                                        {{ webform.SubType }}#}
-{#                                    </div>#}
-{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
-{#                                        <span>Sub-Type:</span>#}
-{#                                        {{ webform.MinPrice }}#}
-{#                                    </div>#}
-{#                                    <div class="rld-single-select ml-22" style="margin-right: 1%;">#}
-{#                                        <span>Sub-Type:</span>#}
-{#                                        {{ webform.MaxPrice }}#}
-{#                                    </div>#}
-{#                                    <div class="col-xl-2 col-lg-2 col-md-4 pl-0">#}
-{#                                        <a style="background-color: #f55d2c" class="btn btn-yellow" href="#">Search Now</a>#}
-{#                                    </div>#}
-{##}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-            <!--/ End Search Form -->
-            <section class="headings-2 pt-0" style="margin-top: 2%">
-                <div class="pro-wrapper">
-                    <div class="detail-wrapper-body">
-                        <div class="listing-title-bar">
-                            <div class="text-heading text-left">
-                                <p class="font-weight-bold mb-0 mt-3">{{ results }} Search results</p>
+            <div class="col-12 px-0 parallax-searchs">
+                <div class="banner-search-wrap">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active">
+                            <div class="rld-main-search">
+                                <form method="post" id="webpropertyform" data-url="{% url 'ajax_load_subtypes' %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="select-option">
+                                                <label>Select City: </label>
+                                                <i class="ti-angle-down"></i>
+                                                {{ webform.City }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="select-option">
+                                                <label>Select Type: </label>
+                                                <i class="ti-angle-down"></i>
+                                                {{ webform.PropertyType }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="select-option">
+                                                <label>Select Sub-Type: </label>
+                                                <i class="ti-angle-down"></i>
+                                                {{ webform.SubType }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 ">
+                                            {{ webform.MinPrice }}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 ">
+                                            {{ webform.MaxPrice }}
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 ">
+                                            <input style="background-color: #f55d2c; margin-top: 17px; height:
+                                             47px; width: 40%; color: white; padding: 10px" type="submit"
+                                               class="btn btn-warning btn-anis" value="SEARCH"/>
+
+                                        </div>
+                                    </div>
+
+                                </form>
                             </div>
-                        </div>
-                    </div>
-                    <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center">
-                        <div class="input-group border rounded input-group-lg w-auto mr-4">
-                            <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
-                                   for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
-                            <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
-                                    data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
-                                    id="inputGroupSelect01" name="sortby">
-                                <option selected>Top Selling</option>
-                                <option value="1">Most Viewed</option>
-                                <option value="2">Price(low to high)</option>
-                                <option value="3">Price(high to low)</option>
-                            </select>
                         </div>
                     </div>
                 </div>
-            </section>
-            <div class="row featured portfolio-items">
-
-                {% for obj in obj %}
-                    {% if forloop.counter|divisibleby:2 %}
-                        <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0 my-44 ft"
-                             data-aos="fade-up">
-                            <div class="project-single mb-0 bb-0">
-                                <div class="project-inner project-head">
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="{% url 'detail' obj.pk %}" class="homes-img">
-                                            <div class="homes-tag button alt featured">Sale</div>
-                                            <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
-                                            <img style="width: 365px; height: 300px" src="{{ obj.BannerImage.url }}"
-                                                 alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
-                                    </div>
+                <!--/ End Search Form -->
+                <section class="headings-2 pt-0 pb-0 mt-5">
+                    <div class="pro-wrapper">
+                        <div class="detail-wrapper-body">
+                            <div class="listing-title-bar">
+                                <div class="text-heading text-left">
+                                    <p><a href="index.html">Home </a> &nbsp;>&nbsp; <span> Properties For Sale</span>
+                                    </p>
+                                </div>
+                                <h3>Properties For Sale</h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="headings-2 pt-0" style="margin-top: 2%">
+                    <div class="pro-wrapper">
+                        <div class="detail-wrapper-body">
+                            <div class="listing-title-bar">
+                                <div class="text-heading text-left">
+                                    <p class="font-weight-bold mb-0 mt-3">{{ results }} Search results</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- homes content -->
-                        <div class="col-lg-6 col-md-12 homes-content pb-0 my-44 ft mb-44" data-aos="fade-up" style="background-color: white; !important;">
-                            <!-- homes address -->
-                            <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
-                            <p class="homes-address mb-3">
-                                <a href="{% url 'detail' obj.pk %}">
-                                    <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
-                                </a>
-                            </p>
-                            <!-- homes List -->
-                            <ul class="homes-list clearfix">
-                                <li>
+                        <div class="cod-pad single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center">
+                            <div class="input-group border rounded input-group-lg w-auto mr-4">
+                                <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
+                                       for="inputGroupSelect01"><i
+                                        class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                                <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
+                                        data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
+                                        id="inputGroupSelect01" name="sortby">
+                                    <option selected>Top Selling</option>
+                                    <option value="1">Most Viewed</option>
+                                    <option value="2">Price(low to high)</option>
+                                    <option value="3">Price(high to low)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="row featured portfolio-items">
+
+                    {% for obj in obj %}
+                        {% if forloop.counter|divisibleby:2 %}
+                            <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0 my-44 ft"
+                                 data-aos="fade-up">
+                                <div class="project-single mb-0 bb-0">
+                                    <div class="project-inner project-head">
+                                        <div class="homes">
+                                            <!-- homes img -->
+                                            <a href="{% url 'detail' obj.pk %}" class="homes-img">
+                                                <div class="homes-tag button alt featured">Sale</div>
+                                                <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
+                                                <img style="width: 365px; height: 300px" src="{{ obj.BannerImage.url }}"
+                                                     alt="home-1"
+                                                     class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="button-effect">
+                                            <a href="{% url 'detail' obj.pk %}" class="btn"><i
+                                                    class="fa fa-link"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- homes content -->
+                            <div class="col-lg-8 col-md-12 homes-content pb-0 my-44 ft mb-44" data-aos="fade-up"
+                                 style="background-color: white; !important;">
+                                <!-- homes address -->
+                                <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
+                                <p class="homes-address mb-3">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
+                                    </a>
+                                </p>
+                                <!-- homes List -->
+                                <ul class="homes-list clearfix">
+                                    <li>
                                     <span> <i class="fa fa-bed" aria-hidden="true"></i>
                                         {{ obj.Beds }} Beds</span>
-                                </li>
-                                <li>
-                                    <span><i class="fa fa-bath" aria-hidden="true"></i> {{ obj.Baths }} Baths</span>
-                                </li>
-                                <li>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa fa-bath" aria-hidden="true"></i> {{ obj.Baths }} Baths</span>
+                                    </li>
+                                    <li>
                                     <span><i class="fa fa-object-group"
                                              aria-hidden="true"></i> {{ obj.Area }} sq mt</span>
-                                </li>
-                                <li>
-                                    {% if obj.garage %}
-                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: Yes</span>
-                                    {% else %}
-                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: No</span>
-                                    {% endif %}
-                                </li>
-                            </ul>
-                            <!-- Price -->
-                            <div class="price-properties">
-                                <h3 class="title mt-3">
-                                    <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} - ₹ {{ obj.MaxPrice }}</a>
-                                </h3>
-                            </div>
-                            <div class="footer">
-                                <a href="{% url 'detail' obj.pk %}">
-                                    <i class="fa fa-user"
-                                       aria-hidden="true"></i> {{ obj.UploaderName }}
-                                </a>
-                                <span>
+                                    </li>
+                                    <li>
+                                        {% if obj.garage %}
+                                            <span><i class="fas fa-warehouse"
+                                                     aria-hidden="true"></i> Garages: Yes</span>
+                                        {% else %}
+                                            <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: No</span>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                                <!-- Price -->
+                                <div class="price-properties">
+                                    <h3 class="title mt-3">
+                                        <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} -
+                                            ₹ {{ obj.MaxPrice }}</a>
+                                    </h3>
+                                </div>
+                                <div class="footer">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        <i class="fa fa-user"
+                                           aria-hidden="true"></i> {{ obj.UploaderName }}
+                                    </a>
+                                    <span>
                                 <i class="fa fa-calendar"></i> {{ obj.created_on }}
                                 </span>
+                                </div>
                             </div>
-                        </div>
-                    {% else %}
-                        <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0" data-aos="fade-up">
-                            <div class="project-single mb-0 bb-0">
-                                <div class="project-inner project-head">
-                                    <div class="homes">
-                                        <!-- homes img -->
-                                        <a href="single-property-1.html" class="homes-img">
-                                            <div class="homes-tag button alt featured">Sale</div>
-                                            <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
-                                            <img style="width: 365px; height: 300px" src="{{ obj.BannerImage.url }}"
-                                                 alt="home-1"
-                                                 class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="button-effect">
-                                        <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
+                        {% else %}
+                            <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0" data-aos="fade-up">
+                                <div class="project-single mb-0 bb-0">
+                                    <div class="project-inner project-head">
+                                        <div class="homes">
+                                            <!-- homes img -->
+                                            <a href="single-property-1.html" class="homes-img">
+                                                <div class="homes-tag button alt featured">Sale</div>
+                                                <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
+                                                <img style="width: 365px; height: 300px" src="{{ obj.BannerImage.url }}"
+                                                     alt="home-1"
+                                                     class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="button-effect">
+                                            <a href="{% url 'detail' obj.pk %}" class="btn"><i
+                                                    class="fa fa-link"></i></a>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- homes content -->
-                        <div class="col-lg-6 col-md-12 homes-content pb-0 mb-44" data-aos="fade-up">
-                            <!-- homes address -->
-                            <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
-                            <p class="homes-address mb-3">
-                                <a href="{% url 'detail' obj.pk %}">
-                                    <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
-                                </a>
-                            </p>
-                            <!-- homes List -->
-                            <ul class="homes-list clearfix">
-                                <li>
+                            <!-- homes content -->
+                            <div class="col-lg-8 col-md-12 homes-content pb-0 mb-44" data-aos="fade-up">
+                                <!-- homes address -->
+                                <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
+                                <p class="homes-address mb-3">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
+                                    </a>
+                                </p>
+                                <!-- homes List -->
+                                <ul class="homes-list clearfix">
+                                    <li>
                                     <span> <i class="fa fa-bed" aria-hidden="true"></i>
                                         {{ obj.Beds }} Beds</span>
-                                </li>
-                                <li>
-                                    <span><i class="fa fa-bath" aria-hidden="true"></i> {{ obj.Baths }} Baths</span>
-                                </li>
-                                <li>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa fa-bath" aria-hidden="true"></i> {{ obj.Baths }} Baths</span>
+                                    </li>
+                                    <li>
                                     <span><i class="fa fa-object-group"
                                              aria-hidden="true"></i> {{ obj.Area }} sq mt</span>
-                                </li>
-                                <li>
-                                    {% if obj.garage %}
-                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: Yes</span>
-                                    {% else %}
-                                        <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: No</span>
-                                    {% endif %}
-                                </li>
-                            </ul>
-                            <!-- Price -->
-                            <div class="price-properties">
-                                <h3 class="title mt-3">
-                                    <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} - ₹ {{ obj.MaxPrice }}</a>
-                                </h3>
-                            </div>
-                            <div class="footer">
-                                <a href="{% url 'detail' obj.pk %}">
-                                    <i class="fa fa-user"
-                                       aria-hidden="true"></i> {{ obj.UploaderName }}
-                                </a>
-                                <span>
+                                    </li>
+                                    <li>
+                                        {% if obj.garage %}
+                                            <span><i class="fas fa-warehouse"
+                                                     aria-hidden="true"></i> Garages: Yes</span>
+                                        {% else %}
+                                            <span><i class="fas fa-warehouse" aria-hidden="true"></i> Garages: No</span>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                                <!-- Price -->
+                                <div class="price-properties">
+                                    <h3 class="title mt-3">
+                                        <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} -
+                                            ₹ {{ obj.MaxPrice }}</a>
+                                    </h3>
+                                </div>
+                                <div class="footer">
+                                    <a href="{% url 'detail' obj.pk %}">
+                                        <i class="fa fa-user"
+                                           aria-hidden="true"></i> {{ obj.UploaderName }}
+                                    </a>
+                                    <span>
                                 <i class="fa fa-calendar"></i> {{ obj.created_on }}
                             </span>
+                                </div>
                             </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <br>
+                <nav aria-label="..." class="pt-0">
+                    <ul class="pagination lis-view">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <br>
-            <nav aria-label="..." class="pt-0">
-                <ul class="pagination lis-view">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </section>
+
     <!-- END SECTION PROPERTIES LISTING -->
 
 {% endblock %}
 
+
+{% block extrajs %}
+    <script>
+        $("#id_PropertyType").change(function () {
+            var url = $("#webpropertyform").attr("data-url");  // get the url of the `load_cities` view
+            var countryId = $(this).val();  // get the selected country ID from the HTML input
+            console.log("12345")
+            $.ajax({                       // initialize an AJAX request
+                url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+                data: {
+                    'country': countryId       // add the country id to the GET parameters
+                },
+                success: function (data) {   // `data` is the return of the `load_cities` view function
+                    $("#id_SubType").html(data);  // replace the contents of the city input with the data that came from the server
+                }
+            });
+
+        });
+    </script>
+
+{% endblock %}

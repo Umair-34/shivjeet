@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/fontawesome-5-all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
-      <!-- ARCHIVES CSS -->
+    <!-- ARCHIVES CSS -->
     <link rel="stylesheet" href="{% static 'css/search.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
@@ -53,7 +53,7 @@
                     <!-- Logo -->
                     <div id="logo">
                         <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}"
-                                                  alt=""></a>
+                                                        alt=""></a>
                     </div>
                     <!-- Mobile Navigation -->
                     <div class="mmenu-trigger">
@@ -96,7 +96,7 @@
     <!-- Header Container / End -->
     <!-- END SECTION HEADINGS -->
 
-{% block content %}
+    {% block content %}
 
     {% endblock %}
 
@@ -181,37 +181,37 @@
     <!-- END FOOTER -->
 
 
+    <!-- ARCHIVES JS -->
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/rangeSlider.js' %}"></script>
+    <script src="{% static 'js/tether.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/mmenu.min.js' %}"></script>
+    <script src="{% static 'js/mmenu.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/aos2.js' %}"></script>
+    <script src="{% static 'js/smooth-scroll.min.js' %}"></script>
+    <script src="{% static 'js/lightcase.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="{% static 'js/light.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/searched.js' %}"></script>
+    <script src="{% static 'js/ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/newsletter.js' %}"></script>
+    <script src="{% static 'js/inner.js' %}"></script>
+    <script src="{% static 'js/color-switcher.js' %}"></script>
+    {% block extrajs %}
+    {% endblock %}
+    <script>
+        $(".dropdown-filter").on('click', function () {
 
-        <!-- ARCHIVES JS -->
-        <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
-        <script src="{% static 'js/rangeSlider.js' %}"></script>
-        <script src="{% static 'js/tether.min.js' %}"></script>
-        <script src="{% static 'js/popper.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/mmenu.min.js' %}"></script>
-        <script src="{% static 'js/mmenu.js' %}"></script>
-        <script src="{% static 'js/aos.js' %}"></script>
-        <script src="{% static 'js/aos2.js' %}"></script>
-        <script src="{% static 'js/smooth-scroll.min.js' %}"></script>
-        <script src="{% static 'js/lightcase.js' %}"></script>
-        <script src="{% static 'js/search.js' %}"></script>
-        <script src="{% static 'js/light.js' %}"></script>
-        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-        <script src="{% static 'js/popup.js' %}"></script>
-        <script src="{% static 'js/searched.js' %}"></script>
-        <script src="{% static 'js/ajaxchimp.min.js' %}"></script>
-        <script src="{% static 'js/newsletter.js' %}"></script>
-        <script src="{% static 'js/inner.js' %}"></script>
-        <script src="{% static 'js/color-switcher.js' %}"></script>
+            $(".explore__form-checkbox-list").toggleClass("filter-block");
 
-        <script>
-            $(".dropdown-filter").on('click', function() {
+        });
 
-                $(".explore__form-checkbox-list").toggleClass("filter-block");
-
-            });
-
-        </script>
+    </script>
 
 </div>
 <!-- Wrapper / End -->

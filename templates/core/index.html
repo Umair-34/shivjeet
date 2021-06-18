@@ -9,9 +9,12 @@
             <div class="row d-flex align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="left wow fadeInLeft">
-                        <h1>Find Your Perfect Home Here</h1>
+                        <h1><strong>Find Your Perfect Home Here !</strong></h1>
                         <p>Trusted Real Estate Consultants in Jaipur since 11 Years..</p>
-                        <a href="submit-property.html" class="btn-white">Get Started</a>
+                        <br>
+                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">BUY</button>
+                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">SELL</button>
+                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">INVEST</button>
                     </div>
                 </div>
                 <div class="col-lg-6 google-maps home-18" data-aos="fade-left">
@@ -42,7 +45,7 @@
                             <div class="filter-item">
                                 <label class="label-submit p-0 m-0">Submit</label>
                                 <br/>
-                                <input type="submit" class="btn-white" style="background-color: #f55d2c"
+                                <input type="submit" class="btn btn-dark btn-anis" style="background-color: black; color: white"
                                        value="SEARCH PROPERTY">
                             </div>
                         </form>
@@ -231,7 +234,6 @@
         $("#id_Type").change(function () {
             var url = $("#webpropertyform").attr("data-url");  // get the url of the `load_cities` view
             var countryId = $(this).val();  // get the selected country ID from the HTML input
-            console.log("12345")
             $.ajax({                       // initialize an AJAX request
                 url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
                 data: {

@@ -10,11 +10,11 @@ class SearchForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SearchForm, self).__init__(*args, **kwargs)
-        self.fields['PropertyType'].widget.attrs = {'class': 'select single-select mr-5', }
-        self.fields['SubType'].widget.attrs = {'class': 'select single-select mr-5', }
-        self.fields['City'].widget.attrs = {'class': 'select single-select mr-5', }
-        # self.fields['MaxPrice'].widget.attrs = {'class': '', }
-        # self.fields['MinPrice'].widget.attrs = {'class': '', }
+        self.fields['PropertyType'].widget.attrs = {'class': 'extra', }
+        self.fields['SubType'].widget.attrs = {'class': 'extra', }
+        self.fields['City'].widget.attrs = {'class': 'extra', }
+        self.fields['MaxPrice'].widget.attrs = {'class': 'form-control inputextra', 'placeholder': 'Maximum Price'}
+        self.fields['MinPrice'].widget.attrs = {'class': 'form-control inputextra', 'placeholder': 'Minimum Price'}
         self.fields['SubType'].queryset = SubPropertyType.objects.none()
 
         if 'PropertyType' in self.data:
