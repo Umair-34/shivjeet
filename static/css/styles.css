@@ -1131,7 +1131,7 @@ img {
 /*------------------------------------*/
 section.recently.portfolio {
   padding: 4.6rem 0;
-  background: #f7f7f7;
+  background: white;
 }
 
 .portfolio .sec-title {
@@ -1422,7 +1422,7 @@ section.recently.portfolio {
   content: "";
   opacity: 0;
   z-index: 33;
-  background: #121B22;
+  /*background: #121B22;*/
   color: #fff;
   text-align: center;
   -webkit-transition: all .5s ease;
@@ -2162,7 +2162,7 @@ section.services-home {
 
 @media screen and (max-width: 991px) {
   .services-home .m-bottom-40 {
-    margin-top: 4.5rem;
+    margin-top: 1.6rem;
   }
 
   .services-home .m-top-0 {
@@ -2558,7 +2558,7 @@ section.portfolio {
   content: "";
   opacity: 0;
   z-index: 1;
-  background: #121B22;
+  /*background: #121B22;*/
   color: #fff;
   text-align: center;
   -webkit-transition: all .5s ease;
@@ -6640,7 +6640,7 @@ a.button,
 /*---------------------------------------*/
 .main-search-field {
   padding: 3rem 0;
-  background: #f55d2c;
+  background: #303441;
   background-repeat: repeat;
 }
 
@@ -12401,8 +12401,8 @@ form label.error {
 /*--------- 37. HEADER IMAGE HOME 18 ----------*/
 /*---------------------------------------------*/
 .header-image.home-18 {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../images/bg/home123.jpg") no-repeat center top;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/bg/home123.jpg") no-repeat center top;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../images/bg/bgbg.jpg") no-repeat center top;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/bg/bgbg.jpg") no-repeat center top;
   background-size: cover;
   background-attachment: fixed !important;
   width: 100%;
@@ -12892,13 +12892,13 @@ section.h18.testimonials {
 }
 
 .home18 .sec-title h2 span::before {
-  position: absolute;
-  width: 50px;
-  height: 1px;
-  background: #f55d2c;
-  top: 18px;
-  content: "";
-  left: -60px;
+  /*position: absolute;*/
+  /*width: 50px;*/
+  /*height: 1px;*/
+  /*background: #f55d2c;*/
+  /*top: 18px;*/
+  /*content: "";*/
+  /*left: -60px;*/
 }
 
 .home18 .sec-title p {
@@ -13407,7 +13407,7 @@ a.button,
 }
 
 .inner-pages section.portfolio {
-  background: #f7f7f7;
+  background: #ffffff;
 }
 
 .inner-pages .blog .block-heading h4 {
@@ -14399,7 +14399,7 @@ section.single-proper {
 
 section.headings-2 {
   padding: 60px 0 55px 0;
-  background: #f7f7f7;
+  background: #ffffff;
 }
 
 .bg-white-inner {
@@ -21330,7 +21330,7 @@ form label.error {
   font-size: 15px;
   font-weight: 400;
   margin-bottom: 10px;
-  color: black;
+  color: white;
 }
 
 .google-maps .filter-half {

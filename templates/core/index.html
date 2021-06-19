@@ -1,5 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extracss %}
+    <style>
+        .line {
+
+            /* Increase this as per requirement */
+            padding-bottom: 5px;
+            border-bottom-style: solid;
+            border-bottom-width: 1.1px;
+            width: fit-content;
+            color: #EE7133;
+        }
+
+        #spin {
+            color: white;
+        }
+
+        #spin:after {
+            content: "";
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                content: "Find Your Perfect Home Here !";
+            }
+
+            100% {
+                content: "Your One Stop Shop For Residential & Commercial Investments";
+            }
+        }
+    </style>
+{% endblock %}
+
 
 {% block content %}
 
@@ -9,12 +42,12 @@
             <div class="row d-flex align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="left wow fadeInLeft">
-                        <h1><strong>Find Your Perfect Home Here !</strong></h1>
-                        <p>Trusted Real Estate Consultants in Jaipur since 11 Years..</p>
+                        <h1><strong><span id="spin">  </span></strong></h1>
+                        <p><strong>Trusted Real Estate Consultants in Jaipur since 11 Years..</strong></p>
                         <br>
-                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">BUY</button>
-                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">SELL</button>
-                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">INVEST</button>
+                        {#                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">BUY</button>#}
+                        {#                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">SELL</button>#}
+                        {#                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">INVEST</button>#}
                     </div>
                 </div>
                 <div class="col-lg-6 google-maps home-18" data-aos="fade-left">
@@ -45,7 +78,8 @@
                             <div class="filter-item">
                                 <label class="label-submit p-0 m-0">Submit</label>
                                 <br/>
-                                <input type="submit" class="btn btn-dark btn-anis" style="background-color: black; color: white"
+                                <input type="submit" class="btn btn-dark btn-anis"
+                                       style="background-color: black; color: white"
                                        value="SEARCH PROPERTY">
                             </div>
                         </form>
@@ -60,12 +94,13 @@
     <section class="recently portfolio bg-white-1 home18">
         <div class="container">
             <div class="sec-title">
-                <h2><span>Featured </span>Properties</h2>
+                <h2 class="line"><span>Featured </span>Properties
+                </h2>
             </div>
             <div class="row portfolio-items">
                 {% for obj in obj %}
                     <div class="item col-lg-4 col-md-6 col-xs-12 people rent">
-                        <div class="project-single" data-aos="zoom-in">
+                        <div class="project-single">
                             <div class="project-inner project-head">
                                 <div class="homes">
                                     <!-- homes img -->
@@ -76,12 +111,9 @@
                                              alt="home-1" class="img-responsive">
                                     </a>
                                 </div>
-                                <div class="button-effect">
-                                    <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
-                                </div>
                             </div>
                             <!-- homes content -->
-                            <div class="homes-content" style="background-color: #d2d2d2">
+                            <div class="homes-content" style="background-color: #edefee">
                                 <!-- homes address -->
                                 <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
                                 <p class="homes-address mb-1">
@@ -121,77 +153,16 @@
     </section>
     <!-- END SECTION PROPERTIES FOR SALE -->
 
-    <section class="recently portfolio bg-white-1 home18">
-        <div class="container">
-            <div class="sec-title">
-                <h2><span>Properties for </span>Rent</h2>
-            </div>
-            <div class="row portfolio-items">
-                {% for obj in obj %}
-                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent">
-                        <div class="project-single" data-aos="zoom-in">
-                            <div class="project-inner project-head">
-                                <div class="homes">
-                                    <!-- homes img -->
-                                    <a href="{% url 'detail' obj.pk %}" class="homes-img">
-                                        <div class="homes-tag button alt featured">Sale</div>
-                                        <div class="homes-tag button sale rent">{{ obj.SubType }}</div>
-                                        <img style="width: 350px; height: 263px" src="{{ obj.BannerImage.url }}"
-                                             alt="home-1" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="button-effect">
-                                    <a href="{% url 'detail' obj.pk %}" class="btn"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <!-- homes content -->
-                            <div class="homes-content" style="background-color: #d2d2d2">
-                                <!-- homes address -->
-                                <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
-                                <p class="homes-address mb-1">
-                                    <a href="{% url 'detail' obj.pk %}">
-                                        <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
-                                    </a>
-                                </p>
-                                <ul class="homes-list clearfix">
-                                    {% if obj.Beds > 0 %}
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>{{ obj.Beds }} </span>
-                                        </li>
-                                    {% endif %}
-                                    {% if obj.Baths > 0 %}
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>{{ obj.Baths }} </span>
-                                        </li>
-                                    {% endif %}
-                                    <li>
-                                        <span><i class="fa fa-object-group"
-                                                 aria-hidden="true"></i> {{ obj.Area }} sq mt
-                                    </span>
-                                    </li>
-                                </ul>
 
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="bg-all">
-                <a href="{% url 'buy' %}" class="btn btn-outline-light">View All</a>
-            </div>
-        </div>
-    </section>
-    <!-- END SECTION PROPERTIES FOR SALE -->
     <!-- START SECTION WHY CHOOSE US -->
     <section class="how-it-works bg-white-1 home18">
         <div class="container">
             <div class="sec-title">
-                <h2><span>Why </span>Choose Us</h2>
+                <h2 class="line"><span>Why </span>Choose Us</h2>
             </div>
             <div class="row service-1">
-                <article class="col-lg-4 col-md-6 col-xs-12 serv" data-aos="fade-up">
+                <article style="margin-right: 5%; margin-left: 10%" class="col-lg-3 col-md-3 col-xs-12 serv"
+                         data-aos="fade-up">
                     <div class="serv-flex">
                         <div class="art-1 img-13">
                             <img src="{% static 'images/icons/icon-1.svg' %}" alt="">
@@ -200,20 +171,20 @@
 
                     </div>
                 </article>
-                <article class="col-lg-4 col-md-6 col-xs-12 serv" data-aos="fade-up">
+                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv" data-aos="fade-up">
                     <div class="serv-flex">
                         <div class="art-1 img-14">
                             <img src="{% static 'images/icons/icon-2.svg' %}" alt="">
-                            <h3>Trusted by thousands</h3>
+                            <h3 style="padding-bottom: 10.5%">Trusted by thousands</h3>
                         </div>
 
                     </div>
                 </article>
-                <article class="col-lg-4 col-md-6 col-xs-12 serv mb-0 pt" data-aos="fade-up">
+                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv mb-0 pt" data-aos="fade-up">
                     <div class="serv-flex arrow">
                         <div class="art-1 img-15">
                             <img src="{% static 'images/icons/icon-3.svg' %}" alt="">
-                            <h3>24/7 support</h3>
+                            <h3 style="padding-bottom: 10.5%">24/7 support</h3>
                         </div>
 
                     </div>

@@ -4,7 +4,7 @@
 {% block extracss %}
     <style>
         .extra {
-            width: 300px;
+            width: 312px;
             margin-top: 10px;
         }
 
@@ -16,84 +16,72 @@
     </style>
 {% endblock %}
 {% block content %}
+    <!-- START SECTION SEARCH AREA -->
+    <section class="main-search-field">
+        <div class="container">
+            <h3>Find Your Dream House</h3>
+            <form method="post" id="webpropertyform" data-url="{% url 'ajax_load_subtypes' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                        <div class="at-col-default-mar">
+                            <label style="color: white">City:</label> {{ webform.City }}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                        <div class="at-col-default-mar">
+                            <label style="color: white">Property Type:</label>{{ webform.PropertyType }}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                        <div class="at-col-default-mar">
+                            <div class="at-col-default-mar">
+                                <label style="color: white">Sub-Type:</label> {{ webform.SubType }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                        <div class="at-col-default-mar no-mb">
+                            {{ webform.MinPrice }}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 no-pds mb-4" data-aos="zoom-in">
+                        <div class="at-col-default-mar no-mb">
+                            {{ webform.MaxPrice }}
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in">
+                        <div style="margin-top: 7%" class="at-col-default-mar no-mb">
+                            <button class="btn btn-default hvr-bounce-to-right" type="submit">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- END SECTION SEARCH AREA -->
+    <!-- START SECTION SEARCH AREA -->
+    <section class="main-search-field" style="background-color: #e6e6e6; padding: 0.2rem 0;">
+        <div class="container">
+            <div class="listing-title-bar">
+                <div class="text-heading text-left">
+                    <p><a href="index.html">Home </a> &nbsp;>&nbsp; <span> Properties For Sale</span>
+                    </p>
+                </div>
+                <h3 style="color: black">Properties For Sale</h3>
+            </div>
+
+        </div>
+    </section>
+    <!-- END SECTION SEARCH AREA -->
+
     <!-- START SECTION PROPERTIES LISTING -->
     <section class="properties-list full featured portfolio blog">
         <div class="container">
-            <section class="headings-2 pt-0 pb-0">
-                <div class="pro-wrapper">
-                    <div class="detail-wrapper-body">
-                        <div class="listing-title-bar">
-                            <h3>Search Properties</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Search Form -->
-            <div class="col-12 px-0 parallax-searchs">
-                <div class="banner-search-wrap">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active">
-                            <div class="rld-main-search">
-                                <form method="post" id="webpropertyform" data-url="{% url 'ajax_load_subtypes' %}">
-                                    {% csrf_token %}
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="select-option">
-                                                <label>Select City: </label>
-                                                <i class="ti-angle-down"></i>
-                                                {{ webform.City }}
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="select-option">
-                                                <label>Select Type: </label>
-                                                <i class="ti-angle-down"></i>
-                                                {{ webform.PropertyType }}
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4">
-                                            <div class="select-option">
-                                                <label>Select Sub-Type: </label>
-                                                <i class="ti-angle-down"></i>
-                                                {{ webform.SubType }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 ">
-                                            {{ webform.MinPrice }}
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 ">
-                                            {{ webform.MaxPrice }}
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 ">
-                                            <input style="background-color: #f55d2c; margin-top: 17px; height:
-                                             47px; width: 40%; color: white; padding: 10px" type="submit"
-                                               class="btn btn-warning btn-anis" value="SEARCH"/>
-
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--/ End Search Form -->
-                <section class="headings-2 pt-0 pb-0 mt-5">
-                    <div class="pro-wrapper">
-                        <div class="detail-wrapper-body">
-                            <div class="listing-title-bar">
-                                <div class="text-heading text-left">
-                                    <p><a href="index.html">Home </a> &nbsp;>&nbsp; <span> Properties For Sale</span>
-                                    </p>
-                                </div>
-                                <h3>Properties For Sale</h3>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="headings-2 pt-0" style="margin-top: 2%">
+            <div class="col-12 px-0 ">
+                <section class="headings-2 pt-0" >
                     <div class="pro-wrapper">
                         <div class="detail-wrapper-body">
                             <div class="listing-title-bar">
@@ -145,7 +133,7 @@
                                 </div>
                             </div>
                             <!-- homes content -->
-                            <div class="col-lg-8 col-md-12 homes-content pb-0 my-44 ft mb-44" data-aos="fade-up"
+                            <div class="col-lg-8 col-md-12 homes-content pb-0 my-44 ft mb-44" style="border: 1px solid #e6e6e6" data-aos="fade-up"
                                  style="background-color: white; !important;">
                                 <!-- homes address -->
                                 <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
@@ -177,20 +165,10 @@
                                     </li>
                                 </ul>
                                 <!-- Price -->
-                                <div class="price-properties">
-                                    <h3 class="title mt-3">
-                                        <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} -
-                                            ₹ {{ obj.MaxPrice }}</a>
-                                    </h3>
-                                </div>
-                                <div class="footer">
-                                    <a href="{% url 'detail' obj.pk %}">
-                                        <i class="fa fa-user"
-                                           aria-hidden="true"></i> {{ obj.UploaderName }}
-                                    </a>
-                                    <span>
-                                <i class="fa fa-calendar"></i> {{ obj.created_on }}
-                                </span>
+                                <div class="footer" style="margin-top: 7%">
+                                    <label>
+                                        ₹ {{ obj.MaxPrice }}
+                                    </label>
                                 </div>
                             </div>
                         {% else %}
@@ -247,20 +225,11 @@
                                     </li>
                                 </ul>
                                 <!-- Price -->
-                                <div class="price-properties">
-                                    <h3 class="title mt-3">
-                                        <a href="{% url 'detail' obj.pk %}">₹ {{ obj.MinPrice }} -
-                                            ₹ {{ obj.MaxPrice }}</a>
-                                    </h3>
-                                </div>
-                                <div class="footer">
-                                    <a href="{% url 'detail' obj.pk %}">
-                                        <i class="fa fa-user"
-                                           aria-hidden="true"></i> {{ obj.UploaderName }}
-                                    </a>
-                                    <span>
-                                <i class="fa fa-calendar"></i> {{ obj.created_on }}
-                            </span>
+                                <!-- Price -->
+                                <div class="footer" style="margin-top: 7%">
+                                    <label>
+                                        ₹ {{ obj.MaxPrice }}
+                                    </label>
                                 </div>
                             </div>
                         {% endif %}
