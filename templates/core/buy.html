@@ -23,17 +23,17 @@
             <form method="post" id="webpropertyform" data-url="{% url 'ajax_load_subtypes' %}">
                 {% csrf_token %}
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="col-lg-4 col-md-6 mb-4" >
                         <div class="at-col-default-mar">
                             <label style="color: white">City:</label> {{ webform.City }}
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="col-lg-4 col-md-6 mb-4" >
                         <div class="at-col-default-mar">
                             <label style="color: white">Property Type:</label>{{ webform.PropertyType }}
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="col-lg-4 col-md-6 mb-4" >
                         <div class="at-col-default-mar">
                             <div class="at-col-default-mar">
                                 <label style="color: white">Sub-Type:</label> {{ webform.SubType }}
@@ -42,17 +42,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="col-lg-4 col-md-6 mb-4" >
                         <div class="at-col-default-mar no-mb">
                             {{ webform.MinPrice }}
                         </div>
                     </div>
-                    <div class="col-lg-4 no-pds mb-4" data-aos="zoom-in">
+                    <div class="col-lg-4 no-pds mb-4" >
                         <div class="at-col-default-mar no-mb">
                             {{ webform.MaxPrice }}
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in">
+                    <div class="col-lg-3 col-md-6" >
                         <div style="margin-top: 7%" class="at-col-default-mar no-mb">
                             <button class="btn btn-default hvr-bounce-to-right" type="submit">Search</button>
                         </div>
@@ -67,7 +67,7 @@
         <div class="container">
             <div class="listing-title-bar">
                 <div class="text-heading text-left">
-                    <p><a href="index.html">Home </a> &nbsp;>&nbsp; <span> Properties For Sale</span>
+                    <p><a href="index.html">Home </a><span><i class="fas fa-angle-right"></i> Properties For Sale</span>
                     </p>
                 </div>
                 <h3 style="color: black">Properties For Sale</h3>
@@ -112,7 +112,7 @@
                     {% for obj in obj %}
                         {% if forloop.counter|divisibleby:2 %}
                             <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0 my-44 ft"
-                                 data-aos="fade-up">
+                                 >
                                 <div class="project-single mb-0 bb-0">
                                     <div class="project-inner project-head">
                                         <div class="homes">
@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                             <!-- homes content -->
-                            <div class="col-lg-8 col-md-12 homes-content pb-0 my-44 ft mb-44" style="border: 1px solid #e6e6e6" data-aos="fade-up"
+                            <div class="col-lg-8 col-md-12 homes-content pb-0 my-44 ft mb-44" style="border: 1px solid #e6e6e6" 
                                  style="background-color: white; !important;">
                                 <!-- homes address -->
                                 <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
@@ -172,7 +172,7 @@
                                 </div>
                             </div>
                         {% else %}
-                            <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0" data-aos="fade-up">
+                            <div class="item col-lg-4 col-md-12 col-xs-12 landscapes sale pr-0 pb-0" >
                                 <div class="project-single mb-0 bb-0">
                                     <div class="project-inner project-head">
                                         <div class="homes">
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
                             <!-- homes content -->
-                            <div class="col-lg-8 col-md-12 homes-content pb-0 mb-44" data-aos="fade-up">
+                            <div class="col-lg-8 col-md-12 homes-content pb-0 mb-44" >
                                 <!-- homes address -->
                                 <h3><a href="{% url 'detail' obj.pk %}">{{ obj.Title }}</a></h3>
                                 <p class="homes-address mb-3">

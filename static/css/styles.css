@@ -2414,7 +2414,7 @@ section.portfolio {
 
 .portfolio .homes-content {
   background: #FFFFFF;
-  padding: 20px 20px !important;
+  padding: 12px 5px !important;
 }
 
 
@@ -2508,8 +2508,8 @@ section.portfolio {
 
 .portfolio .footer {
   background: none;
-  border-top: 1px solid #e8e8e8;
-  padding-top: 1rem;
+  border-top: 1px solid #c1c1c1;
+  padding-top: 0.1rem;
   font-size: 13px;
   color: #666;
 }

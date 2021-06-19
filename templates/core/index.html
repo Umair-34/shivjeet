@@ -121,26 +121,27 @@
                                         <i class="fa fa-map-marker"></i><span>{{ obj.Address }}</span>
                                     </a>
                                 </p>
-                                <ul class="homes-list clearfix">
-                                    {% if obj.Beds > 0 %}
-                                        <li>
-                                            <i class="fa fa-bed" aria-hidden="true"></i>
-                                            <span>{{ obj.Beds }} </span>
-                                        </li>
-                                    {% endif %}
-                                    {% if obj.Baths > 0 %}
-                                        <li>
-                                            <i class="fa fa-bath" aria-hidden="true"></i>
-                                            <span>{{ obj.Baths }} </span>
-                                        </li>
-                                    {% endif %}
-                                    <li>
-                                        <span><i class="fa fa-object-group"
-                                                 aria-hidden="true"></i> {{ obj.Area }} sq mt
-                                    </span>
-                                    </li>
-                                </ul>
+                                <div class="footer" style="margin-bottom: -10px">
+                                    <div class="row">
+                                        {% if obj.Beds > 0 %}
+                                            <div class="col-4" style="border-right: 1px solid #c1c1c1">
+                                                <i class="fa fa-bed" style="color: #f55d2c" aria-hidden="true"></i>
+                                                {{ obj.Beds }}
+                                            </div>
+                                        {% endif %}
 
+                                        {% if obj.Beds > 0 %}
+                                            <div class="col-3" style="border-right: 1px solid #c1c1c1">
+                                                <i class="fa fa-bath" style="color: #f55d2c" aria-hidden="true"></i>
+                                                {{ obj.Baths }}
+                                            </div>
+                                        {% endif %}
+                                        <div class="col-5">
+                                            <i class="fa fa-object-group" style="color: #f55d2c" aria-hidden="true"></i>
+                                            {{ obj.Area }} sq mt
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -161,8 +162,7 @@
                 <h2 class="line"><span>Why </span>Choose Us</h2>
             </div>
             <div class="row service-1">
-                <article style="margin-right: 5%; margin-left: 10%" class="col-lg-3 col-md-3 col-xs-12 serv"
-                         data-aos="fade-up">
+                <article style="margin-right: 5%; margin-left: 10%" class="col-lg-3 col-md-3 col-xs-12 serv">
                     <div class="serv-flex">
                         <div class="art-1 img-13">
                             <img src="{% static 'images/icons/icon-1.svg' %}" alt="">
@@ -171,7 +171,7 @@
 
                     </div>
                 </article>
-                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv" data-aos="fade-up">
+                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv" >
                     <div class="serv-flex">
                         <div class="art-1 img-14">
                             <img src="{% static 'images/icons/icon-2.svg' %}" alt="">
@@ -180,7 +180,7 @@
 
                     </div>
                 </article>
-                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv mb-0 pt" data-aos="fade-up">
+                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv mb-0 pt" >
                     <div class="serv-flex arrow">
                         <div class="art-1 img-15">
                             <img src="{% static 'images/icons/icon-3.svg' %}" alt="">
