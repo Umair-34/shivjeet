@@ -12,24 +12,10 @@
             color: #EE7133;
         }
 
-        #spin {
-            color: white;
+        .hidden {
+            opacity: 0;
         }
 
-        #spin:after {
-            content: "";
-            animation: spin 8s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                content: "Find Your Perfect Home Here !";
-            }
-
-            100% {
-                content: "Your One Stop Shop For Residential & Commercial Investments";
-            }
-        }
     </style>
 {% endblock %}
 
@@ -42,7 +28,11 @@
             <div class="row d-flex align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="left wow fadeInLeft">
-                        <h1><strong><span id="spin">  </span></strong></h1>
+                        <h1>
+                            <div class='console-container'><span id='text'></span>
+                                <div class='console-underscore' id='console'>&#95;</div>
+                            </div>
+                        </h1>
                         <p><strong>Trusted Real Estate Consultants in Jaipur since 11 Years..</strong></p>
                         <br>
                         {#                        <button style="margin-right: 1%" class="btn btn-secondary btn-anis">BUY</button>#}
@@ -171,7 +161,7 @@
 
                     </div>
                 </article>
-                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv" >
+                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv">
                     <div class="serv-flex">
                         <div class="art-1 img-14">
                             <img src="{% static 'images/icons/icon-2.svg' %}" alt="">
@@ -180,7 +170,7 @@
 
                     </div>
                 </article>
-                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv mb-0 pt" >
+                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv mb-0 pt">
                     <div class="serv-flex arrow">
                         <div class="art-1 img-15">
                             <img src="{% static 'images/icons/icon-3.svg' %}" alt="">
@@ -216,6 +206,61 @@
             });
 
         });
+    </script>
+
+
+    <script>
+        // function([string1, string2],target id,[color1,color2])
+        consoleText(['Find Your Perfect Home Here !', 'Your One Stop Shop For Residential & Commercial Investments'], 'text', ['white', 'white']);
+
+        function consoleText(words, id, colors) {
+            if (colors === undefined) colors = ['#fff'];
+            var visible = true;
+            var con = document.getElementById('console');
+            var letterCount = 1;
+            var x = 1;
+            var waiting = false;
+            var target = document.getElementById(id)
+            target.setAttribute('style', 'color:' + colors[0])
+            window.setInterval(function () {
+
+                if (letterCount === 0 && waiting === false) {
+                    waiting = true;
+                    target.innerHTML = words[0].substring(0, letterCount)
+                    window.setTimeout(function () {
+                        var usedColor = colors.shift();
+                        colors.push(usedColor);
+                        var usedWord = words.shift();
+                        words.push(usedWord);
+                        x = 1;
+                        target.setAttribute('style', 'color:' + colors[0])
+                        letterCount += x;
+                        waiting = false;
+                    }, 1000)
+                } else if (letterCount === words[0].length + 1 && waiting === false) {
+                    waiting = true;
+                    window.setTimeout(function () {
+                        x = -1;
+                        letterCount += x;
+                        waiting = false;
+                    }, 1000)
+                } else if (waiting === false) {
+                    target.innerHTML = words[0].substring(0, letterCount)
+                    letterCount += x;
+                }
+            }, 120)
+            window.setInterval(function () {
+                if (visible === true) {
+                    con.className = 'console-underscore hidden'
+                    visible = false;
+
+                } else {
+                    {#con.className = 'console-underscore'#}
+
+                    visible = true;
+                }
+            }, 400)
+        }
     </script>
 
 {% endblock %}
