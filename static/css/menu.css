@@ -496,7 +496,7 @@ a.button.border, a.button {
     color: #707070;
 }
 #header.cloned.sticky ul li:hover a {
-    color: #f55d2c;
+    color: #EE7133;
 }
 #navigation.style-1 .current:after {
     opacity: 1;
@@ -509,10 +509,10 @@ a.button.border, a.button {
 
 }
 #navigation.style-1 ul li:hover a {
-    color: #f55d2c;
+    color: #EE7133;
 }
 #navigation.style-1 ul a {
-    font-size: 16px;
+    font-size: 1.5rem;
     text-transform: capitalize;
     line-height: 32px;
     padding: 6px 16px;
