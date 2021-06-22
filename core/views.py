@@ -5,7 +5,7 @@ from htmllaundry import strip_markup
 
 
 def index(request):
-    queryset = Property.objects.filter(Featured='True', Status=True)[:3]
+    queryset = Property.objects.filter(Featured='True', Status=True)[:6]
     if request.method == 'POST':
         webform = SearchWebForm(request.POST)
         print("-----In If-----")
