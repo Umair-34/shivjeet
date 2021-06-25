@@ -105,7 +105,7 @@
             </div>
             <div class="row portfolio-items">
                 {% for obj in obj %}
-                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent">
+                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent" style="margin-bottom: 15px">
                         <div class="project-single">
                             <div class="project-inner project-head">
                                 <div class="homes">
@@ -152,6 +152,8 @@
                         </div>
                     </div>
                 {% endfor %}
+
+
             </div>
             <div style="float:right;" class="bg-all">
                 <a class="line" style="text-decoration: none" href="{% url 'buy' %}"><span class="viewall"> View All Properties
@@ -171,7 +173,7 @@
             </div>
             <div class="row portfolio-items">
                 {% for obj in obj %}
-                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent">
+                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent" style="margin-bottom: 15px">
                         <div class="project-single">
                             <div class="project-inner project-head">
                                 <div class="homes">
@@ -234,8 +236,8 @@
             <div class="sec-title">
                 <h2 class="line"><span>Why </span>Choose Us</h2>
             </div>
-            <div class="row service-1">
-                <article style="margin-right: 5%; margin-left: 10%" class="col-lg-3 col-md-3 col-xs-12 serv">
+            <div class="row service-1" style="align-content: center">
+                <article style="margin-right: 5%" class="col-lg-3 col-md-3 col-xs-12 serv">
                     <div class="serv-flex">
                         <div class="art-1 img-13">
                             <img src="{% static 'images/icons/icon-1.svg' %}" alt="">
